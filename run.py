@@ -10,6 +10,59 @@ words = ('ant baboon badger bat bear beaver camel cat clam cobra cougar '
          'stork swan tiger toad trout turkey turtle weasel whale wolf '
          'wombat zebra ').split()
 
+# r is raw string notation to solve syntax issues with hangman drawing. 
+hangman_drawing = [r'''
+  +---+
+  |   |
+      |
+      |
+      |
+      |
+=========''', r'''
+  +---+
+  |   |
+  O   |
+      |
+      |
+      |
+=========''', r'''
+  +---+
+  |   |
+  O   |
+  |   |
+      |
+      |
+=========''', r'''
+  +---+
+  |   |
+  O   |
+ /|   |
+      |
+      |
+=========''', r'''
+  +---+
+  |   |
+  O   |
+ /|\  |
+      |
+      |
+=========''', r'''
+  +---+
+  |   |
+  O   |
+ /|\  |
+ /    |
+      |
+=========''', r'''
+  +---+
+  |   |
+  O   |
+ /|\  |
+ / \  |
+      |
+=========''']
+print(hangman_drawing)
+
 
 def welcome():
     """
