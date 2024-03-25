@@ -24,4 +24,30 @@ def welcome():
     )
 
 
-def 
+def get_username():
+    """
+    Function to prompt the user to enter a username.
+    Passes the username input for validation to the validate_username function.
+    """
+    while True:
+        username_input = (
+            input("Choose your username: ").strip().upper()
+        )
+        if validate_username(username_input):
+            return username_input
+
+
+def validate_username(username_input):
+    """
+    Validate the username input to ensure it is between 1 and 10 characters.
+    """
+    if " " in username_input or not username_input.isalpha():
+        print("Invalid username. Please use alphabetic characters and no spaces.")
+        return False
+    elif len(username_input) < 1 or len(username_input) > 10:
+        print("Invalid username. Please use between 1 and 10 characters.")
+        return False
+    else:
+        return username_input
+
+
