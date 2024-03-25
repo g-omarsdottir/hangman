@@ -1,3 +1,5 @@
+import random
+
 
 # Words to guess in a tuple (immutable)
 words = ('ant baboon badger bat bear beaver camel cat clam cobra cougar '
@@ -7,10 +9,6 @@ words = ('ant baboon badger bat bear beaver camel cat clam cobra cougar '
          'rhino salmon seal shark sheep skunk sloth snake spider '
          'stork swan tiger toad trout turkey turtle weasel whale wolf '
          'wombat zebra ').split()
-print(words)
-
-
-
 
 
 def welcome():
@@ -33,8 +31,6 @@ def welcome():
             
     After 6 incorrect guesses, the stick figure is complete and it’s game over.
             
-    Let the games begin!
-            
     """
     )
 
@@ -46,7 +42,7 @@ def get_username():
     """
     while True:
         username_input = (
-            input("Choose your username: ").strip().upper()
+            input("Choose your username: ").strip()
         )
         if validate_username(username_input):
             return username_input
@@ -63,12 +59,29 @@ def validate_username(username_input):
         print("Invalid username. Please use between 1 and 10 characters.")
         return False
     else:
+        print(f"Welcome, {username_input}, let the games begin!")
         return username_input
+        
+
+def get_random_word():
+    """
+    Function to generate a random word from tuple words.
+    Convert word to uppercase for comparison with the user's guess.
+    """
+    return random.choice(words).upper()
+
+
+def get_blanks():
+    """
+    Function to generate blanks to indicate number of letters of word to guess.
+    """
+    return "_ " * len(word)
 
 
 def get_user_guess():
     """
     Function to prompt the user to guess a letter.
+    Convert input to uppercase for comparison with the word to guess.
     Passes the letter for validation to the validate_guess function.
     """
     while True:
@@ -94,13 +107,21 @@ def validate_guess(user_guess):
         return user_guess
 
 
+# Variables for words to guess. Only works on global level. To-do: structure.
+word = get_random_word()
+blanks = get_blanks()
+
+
 def main():
     """
     Function to run all game functions
     """
     welcome()
     username = get_username()
+
     guess = get_user_guess()
+    print(word)
+    print(blanks)
 
 
 main()
