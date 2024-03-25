@@ -43,25 +43,25 @@ hangman_drawing = [r'''
   +---+
   |   |
   O   |
- /|\  |
+ /|\\  |
       |
       |
 =========''', r'''
   +---+
   |   |
   O   |
- /|\  |
+ /|\\  |
  /    |
       |
 =========''', r'''
   +---+
   |   |
   O   |
- /|\  |
- / \  |
+ /|\\  |
+ / \\  |
       |
 =========''']
-print(hangman_drawing)
+
 
 
 def welcome():
@@ -113,23 +113,20 @@ def validate_username(username_input):
         return False
     else:
         print(f"Welcome, {username_input}, let the games begin!")
-        return username_input
+        return True
         
 
-def get_random_word():
+def display_word_puzzle():
     """
     Function to generate a random word from tuple words.
     Convert word to uppercase for comparison with the user's guess.
+    Generate blanks to indicate number of letters of word to guess.    
     """
-    return random.choice(words).upper()
-
-
-def get_blanks():
-    """
-    Function to generate blanks to indicate number of letters of word to guess.
-    """
-    return "_ " * len(word)
-
+    word = random.choice(words).upper()
+    blanks = "_ " * len(word)
+    print(blanks)
+    print(used_letters)
+    print(hangman_drawing[(guesses_left)])
 
 def get_user_guess():
     """
@@ -157,19 +154,20 @@ def validate_guess(user_guess):
     # Add validation for used letters
     else:
         print(f"Let's see if {user_guess} works...")
-        return user_guess
+        return compare_guess(user_guess)
 
 
-def compare_guess():
+def compare_guess(guess, word):
     """
     Function that compares user's guess with the word to guess and already used letters.
     Returns the correct guess or appends the wrong guess to used_letters list.
     """
     if guess in used_letters:
         print(f"You've already guessed {guess}. Try again.")
-        used_letters.append(guess + ", ")
-        guesses_left -= 1
         return False
+    elif guess not in word:
+        used_letters.append(guess)
+        guesses_left -= 1
     else:
         print(f"Great job, {guess} is correct!")
         return True
@@ -177,24 +175,23 @@ def compare_guess():
 
 
 # global variables
-guesses_left = len(hangman_drawing)
+guesses_left = len((hangman_drawing) -1)
 used_letters = []
 
 
-# Variables for words to guess. Only works on global level. To-do: structure.
-word = get_random_word()
-blanks = get_blanks()
-correct_guess = compare_guess()
-
-#def main():
-    #"""
-    #Function to run all game functions
-    #"""
-welcome()
-username = get_username()
-guess = get_user_guess()
-print(word)
-print(blanks)
 
 
-#main()
+def main():
+    """
+    Function to run all game functions
+    """
+    welcome()
+    username = get_username()
+    display_word_puzzle()
+    guess = get_user_guess()
+    correct_guess = compare_guess()
+    print(word)
+    print(blanks)
+
+
+main()
