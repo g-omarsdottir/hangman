@@ -51,12 +51,41 @@ def validate_username(username_input):
         return username_input
 
 
+def get_user_guess():
+    """
+    Function to prompt the user to guess a letter.
+    Passes the letter for validation to the validate_guess function.
+    """
+    while True:
+        user_guess = input("Guess a letter: ").strip().upper()
+        if validate_guess(user_guess):
+            return user_guess
+
+
+def validate_guess(user_guess):
+    """
+    Function that validates user input to ensure it is a single letter.
+    Returns the validated letter or False if input is invalid.
+    """
+    if " " in user_guess or not user_guess.isalpha():
+        print(f"'{user_guess}' is not a letter, try again.")
+        return False
+    elif len(user_guess) != 1:
+        print("Enter a single letter.")
+        return False
+    # Add validation for used letters
+    else:
+        print(f"Let's see if {user_guess} works...")
+        return user_guess
+
+
 def main():
     """
     Function to run all game functions
     """
     welcome()
     username = get_username()
+    guess = get_user_guess()
 
 
 main()
