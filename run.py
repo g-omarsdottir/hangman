@@ -68,7 +68,6 @@ def welcome():
     """
     Function that welcomes the user to the game and explains the basic rules.
     """
-    print("Welcome! Testing")
 
     print(
     """
@@ -76,13 +75,14 @@ def welcome():
         
     You will get a set of blanks representing the number of letters in a word.
     Guess the word by entering one letter at a time and press enter.
+
+    You have 6 guesses. 
             
     If you guess correctly, your letter(s) will appear on the blank(s).
             
-    With each incorrect guess, one element will be added to the stick figure
-    on the gallows, so choose wisely. 
-            
-    After 6 incorrect guesses, the stick figure is complete and it’s game over.
+    If you fail, you have one less guess left and are one step closer to the gallows. 
+    
+    So choose wisely!
             
     """
     )
@@ -160,21 +160,41 @@ def validate_guess(user_guess):
         return user_guess
 
 
+def compare_guess():
+    """
+    Function that compares user's guess with the word to guess and already used letters.
+    Returns the correct guess or appends the wrong guess to used_letters list.
+    """
+    if guess in used_letters:
+        print(f"You've already guessed {guess}. Try again.")
+        used_letters.append(guess + ", ")
+        guesses_left -= 1
+        return False
+    else:
+        print(f"Great job, {guess} is correct!")
+        return True
+        # exchange letter for blanks 
+
+
+# global variables
+guesses_left = len(hangman_drawing)
+used_letters = []
+
+
 # Variables for words to guess. Only works on global level. To-do: structure.
 word = get_random_word()
 blanks = get_blanks()
+correct_guess = compare_guess()
+
+#def main():
+    #"""
+    #Function to run all game functions
+    #"""
+welcome()
+username = get_username()
+guess = get_user_guess()
+print(word)
+print(blanks)
 
 
-def main():
-    """
-    Function to run all game functions
-    """
-    welcome()
-    username = get_username()
-
-    guess = get_user_guess()
-    print(word)
-    print(blanks)
-
-
-main()
+#main()
