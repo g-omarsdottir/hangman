@@ -51,3 +51,12 @@ def validate_username(username_input):
         return username_input
 
 
+def main():
+    """
+    Function to run all game functions
+    """
+    welcome()
+    username = get_username()
+
+
+main()
