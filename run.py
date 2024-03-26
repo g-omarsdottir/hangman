@@ -62,57 +62,84 @@ hangman_drawing = [r'''
       |
 =========''']
 
+# global variables
+guesses_left = len(hangman_drawing) -1
+used_letters = []
 
-
-def welcome():
+def choice_play_game():
     """
-    Function that welcomes the user to the game and explains the basic rules.
+    Function that welcomes the user and prompts to make a choice.
+    Choice is to continue to next step to play game.
     """
+    print("Welcome to a game of Hangman!")
+    print(hangman_drawing[0])
+    print()
 
-    print(
-    """
-    Welcome to a game of Hangman!
-        
-    You will get a set of blanks representing the number of letters in a word.
-    Guess the word by entering one letter at a time and press enter.
+    while True:
 
-    You have 6 guesses. 
-            
-    If you guess correctly, your letter(s) will appear on the blank(s).
-            
-    If you fail, you have one less guess left and are one step closer to the gallows. 
+        user_choice_play = input("Would you like to play? (y/n): ").strip().upper()
+        if user_choice_play == "N":
+            print("You choose not to play. Until next time then, take care!")
+            return False
+        elif user_choice_play == "Y":
+            print("Good stuff, glad to have you on board!")
+            return True
+        else:
+            print("Invalid input. Please enter 'y' or 'n'.")
+            return False
     
-    So choose wisely!
-            
+def choice_display_rules():
     """
-    )
+    Function that prompts the user to make a choice.
+    Choice is to read the rules before playing game.
+    """
+    while True:    
+        user_choice_rules = input("Would you like to read the rules? (y/n) ").strip().upper()
+        if user_choice_rules == "Y":
+            print("""
+                You will get a set of blanks representing the number of letters in a word.
+                Guess the word by entering one letter at a time and press enter.
+
+                You have 6 guesses. 
+                        
+                If you guess correctly, your letter(s) will appear on the blank(s).
+                        
+                If you fail, you have one less guess left and are one step closer to the gallows. 
+                
+                So choose wisely!
+            """)       
+            return True
+        elif user_choice_rules == "N":
+            return choice_username()
+    else:
+            return False
 
 
-def get_username():
+def choice_username():
     """
     Function to prompt the user to enter a username.
     Passes the username input for validation to the validate_username function.
     """
     while True:
-        username_input = (
+        username = (
             input("Choose your username: ").strip()
         )
-        if validate_username(username_input):
-            return username_input
+        if validate_username(username):
+            return username
 
 
-def validate_username(username_input):
+def validate_username(username):
     """
     Validate the username input to ensure it is between 1 and 10 characters.
     """
-    if " " in username_input or not username_input.isalpha():
+    if " " in username or not username.isalpha():
         print("Invalid username. Please use alphabetic characters and no spaces.")
         return False
-    elif len(username_input) < 1 or len(username_input) > 10:
+    elif len(username) < 1 or len(username) > 10:
         print("Invalid username. Please use between 1 and 10 characters.")
         return False
     else:
-        print(f"Welcome, {username_input}, let the games begin!")
+        print(f"Welcome, {username}, let the games begin!")
         return True
         
 
@@ -174,19 +201,13 @@ def compare_guess(guess, word):
         # exchange letter for blanks 
 
 
-# global variables
-guesses_left = len((hangman_drawing) -1)
-used_letters = []
-
-
-
-
 def main():
     """
     Function to run all game functions
     """
-    welcome()
-    username = get_username()
+    choice_play_game()
+    choice_display_rules()
+    choice_username()
     display_word_puzzle()
     guess = get_user_guess()
     correct_guess = compare_guess()
