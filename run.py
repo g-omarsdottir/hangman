@@ -65,7 +65,16 @@ hangman_drawing = [r'''
 # global variables
 guesses_left = len(hangman_drawing) - 1
 print(guesses_left)
+
 used_letters = []
+
+# Generate a random word from the tuple words. 
+# Convert word to uppercase for comparison with the user's guess.
+word = random.choice(words).upper()
+
+#Generate blanks to indicate number of letters of word to guess.   
+blanks = "_ " * len(word)
+
 
 def choice_play_game():
     """
@@ -80,10 +89,10 @@ def choice_play_game():
 
         user_choice_play = input("Would you like to play? (y/n): ").strip().upper()
         if user_choice_play == "N":
-            print("You choose not to play. Until next time then, take care!")
+            print("You choose not to play. See you later, aligator!")
             return False
         elif user_choice_play == "Y":
-            print("Good stuff, glad to have you on board!")
+            print("You choose to play, glad to have you on board!")
             return True
         else:
             print("Invalid input. Please enter 'y' or 'n'.")
@@ -141,20 +150,17 @@ def validate_username(username):
     else:
         print(f"Welcome, {username}, let the games begin!")
         return True
-        
+
 
 def display_word_puzzle():
     """
-    Function to generate a random word from tuple words.
-    Convert word to uppercase for comparison with the user's guess.
-    Generate blanks to indicate number of letters of word to guess.    
+    Function that displays the word puzzle to the user.
     """
-    word = random.choice(words).upper()
-    blanks = "_ " * len(word)
+    print(word) #To-do: delete
     print(blanks)
     print(used_letters)
     print(hangman_drawing[guesses_left])
-
+    return get_guess()
 
 def get_guess():
     """
