@@ -63,7 +63,8 @@ hangman_drawing = [r'''
 =========''']
 
 # global variables
-guesses_left = len(hangman_drawing) -1
+guesses_left = len(hangman_drawing) - 1
+print(guesses_left)
 used_letters = []
 
 def choice_play_game():
@@ -111,7 +112,8 @@ def choice_display_rules():
             return True
         elif user_choice_rules == "N":
             return choice_username()
-    else:
+        else:
+            print("Invalid input. Please enter 'y' or 'n'.")
             return False
 
 
@@ -153,7 +155,7 @@ def display_word_puzzle():
     blanks = "_ " * len(word)
     print(blanks)
     print(used_letters)
-    print(hangman_drawing[(guesses_left)])
+    print(hangman_drawing[guesses_left])
 
 def get_user_guess():
     """
