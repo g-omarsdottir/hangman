@@ -72,7 +72,7 @@ used_letters = []
 # Convert word to uppercase for comparison with the user's guess.
 word = random.choice(words).upper()
 
-#Generate blanks to indicate number of letters of word to guess.   
+# Generate blanks to indicate number of letters of word to guess.   
 blanks = "_ " * len(word)
 
 
@@ -82,15 +82,16 @@ def choice_play_game():
     Choice is to continue to next step to play game.
     """
     print("Welcome to a game of Hangman!")
-    print(hangman_drawing[0])
+    print(hangman_drawing[6])
     print()
 
     while True:
 
         user_choice_play = input("Would you like to play? (y/n): ").strip().upper()
         if user_choice_play == "N":
-            print("You choose not to play. See you later, aligator!")
+            print("You choose not to play. See you later, alligator!")
             return False
+            break
         elif user_choice_play == "Y":
             print("You choose to play, glad to have you on board!")
             return True
@@ -120,7 +121,7 @@ def choice_display_rules():
             """)       
             return True
         elif user_choice_rules == "N":
-            return choice_username()
+            return True
         else:
             print("Invalid input. Please enter 'y' or 'n'.")
             return False
@@ -171,7 +172,10 @@ def get_guess():
     while True:
         guess = input("Guess a letter: ").strip().upper()
         if validate_guess(guess):
-            return guess
+            print("function: get_guess")
+            break
+            
+    return guess
 
 
 def validate_guess(guess):
@@ -191,7 +195,7 @@ def validate_guess(guess):
         return compare_guess(guess)
 
 
-def compare_guess(guess, word):
+def compare_guess(guess, word, guesses_left):
     """
     Function that compares user's guess with the word to guess and already used letters.
     Returns the correct guess or appends the wrong guess to used_letters list.
@@ -202,6 +206,7 @@ def compare_guess(guess, word):
     elif guess not in word:
         used_letters.append(guess)
         guesses_left -= 1
+        return guesses_left
     else:
         print(f"Great job, {guess} is correct!")
         return True
@@ -210,7 +215,7 @@ def compare_guess(guess, word):
 
 def main():
     """
-    Function to run all game functions
+    Function to run all game functions.
     """
     choice_play_game()
     choice_display_rules()
