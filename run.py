@@ -68,11 +68,11 @@ print(guesses_left)
 
 used_letters = []
 
-# Generate a random word from the tuple words. 
+# Generate a random word from the tuple words.
 # Convert word to uppercase for comparison with the user's guess.
 word = random.choice(words).upper()
 
-# Generate blanks to indicate number of letters of word to guess.   
+# Generate blanks to indicate number of letters of word to guess.
 blanks = "_ " * len(word)
 
 
@@ -91,20 +91,20 @@ def choice_play_game():
         if user_choice_play == "N":
             print("You choose not to play. See you later, alligator!")
             return False
-            break
         elif user_choice_play == "Y":
             print("You choose to play, glad to have you on board!")
             return True
         else:
             print("Invalid input. Please enter 'y' or 'n'.")
             return False
-    
+
+
 def choice_display_rules():
     """
     Function that prompts the user to make a choice.
     Choice is to read the rules before playing game.
     """
-    while True:    
+    while True:
         user_choice_rules = input("Would you like to read the rules? (y/n) ").strip().upper()
         if user_choice_rules == "Y":
             print("""
@@ -153,15 +153,22 @@ def validate_username(username):
         return True
 
 
-def display_word_puzzle():
+def word_puzzle():
     """
     Function that displays the word puzzle to the user.
+    Ends game when winning or losing conditions are met.
     """
-    print(word) #To-do: delete
-    print(blanks)
-    print(used_letters)
-    print(hangman_drawing[guesses_left])
-    return get_guess()
+    while guesses_left > 0 and "_" in blanks:
+        print(word) #To-do: delete
+        print(blanks)
+        print(used_letters)
+        print(hangman_drawing[guesses_left])
+        return True
+    if guesses_left > 0 and "_" not in blanks:
+        print("Congratulations, {username}, you won!") 
+    if guesses_left == 0 and "_" in blanks:
+        print("Too bad, {}, you lost.")
+        return choice_play_again()
 
 def get_guess():
     """
@@ -174,7 +181,6 @@ def get_guess():
         if validate_guess(guess):
             print("function: get_guess")
             break
-            
     return guess
 
 
@@ -192,7 +198,7 @@ def validate_guess(guess):
     # Add validation for used letters
     else:
         print(f"Let's see if {guess} works...")
-        return compare_guess(guess)
+        return compare_guess(guess, word, guesses_left)
 
 
 def compare_guess(guess, word, guesses_left):
@@ -206,11 +212,33 @@ def compare_guess(guess, word, guesses_left):
     elif guess not in word:
         used_letters.append(guess)
         guesses_left -= 1
+        print(f"Wrong guess, {guess} is not correct.")
         return guesses_left
     else:
         print(f"Great job, {guess} is correct!")
-        return True
-        # exchange letter for blanks 
+        blanks = blanks.replace("_", guess, 1)
+        used_letters.append(guess)
+        return blanks
+
+
+def choice_play_again():
+    """
+    Function that prompts the user to make a choice.
+    Choice is to play again or not.
+    """
+    while True:
+        user_choice_play_again = (
+            input("Would you like to play again? (y/n) ").strip().upper()
+        )
+        if user_choice_play_again == "N":
+            print("You chose not to play again. See you in a while, crocodile!")
+            return
+        elif user_choice_play_again == "Y":
+            print("You chose to play again, good stuff!")
+            return choice_play_game()
+        else:
+            print("Invalid input. Please enter 'y' or 'n'.")
+            return False         
 
 
 def main():
@@ -220,7 +248,7 @@ def main():
     choice_play_game()
     choice_display_rules()
     choice_username()
-    display_word_puzzle()
+    word_puzzle()
     get_guess()
     compare_guess()
 
