@@ -170,6 +170,7 @@ def word_puzzle():
         print("Too bad, {}, you lost.")
         return choice_play_again()
 
+
 def get_guess():
     """
     Function to prompt the user to guess a letter.
@@ -206,7 +207,7 @@ def compare_guess(guess, word, guesses_left):
     Function that compares user's guess with the word to guess and already used letters.
     Returns the correct guess or appends the wrong guess to used_letters list.
     """
-    if guess in used_letters:                               # Doesn't work
+    if guess in used_letters:                               # Doesn't work. If wrong letter guessed, game stops.
         print(f"You've already guessed {guess}. Try again.")
         return False
     elif guess not in word:                                 # Doesn't work
@@ -214,10 +215,10 @@ def compare_guess(guess, word, guesses_left):
         guesses_left -= 1
         print(f"Wrong guess, {guess} is not correct.")
         return guesses_left
-    else:                                                   # Works
-        print(f"Great job, {guess} is correct!")
-        used_letters.append(guess)
-        return " ".join([letter if letter in used_letters else "_" for letter in word])
+    else:                                                   
+        print(f"Great job, {guess} is correct!")            # Works: the correct guess (letter) is printed
+        used_letters.append(guess)                          # Doesn't work
+        return " ".join([letter if letter in used_letters else "_" for letter in word]) # Doesn't work
 
 
 def choice_play_again():
@@ -248,8 +249,8 @@ def main():
     choice_display_rules()
     choice_username()
     word_puzzle()
-    get_guess()
-    compare_guess()
+    guess = get_guess()
+    compare_guess(guess, word, guesses_left)
 
 
 main()
