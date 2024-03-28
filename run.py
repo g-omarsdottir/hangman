@@ -193,11 +193,12 @@ def compare_guess(guess, word, guesses_left):
     while guesses_left > 0:
         if guess in used_letters:                               # Doesn't work. If wrong letter guessed, game stops.
             print(f"You've already guessed {guess}. Try again.")
-            break
+            return
         elif guess not in word:                                 # Doesn't work
             used_letters.append(guess)
             guesses_left -= 1
             print(f"Wrong guess, {guess} is not correct.")
+            return " ".join([letter if letter in used_letters else "_" for letter in word])
             return guesses_left
         else:                                                   
             print(f"Great job, {guess} is correct!")            # Works: the correct guess (letter) is printed
