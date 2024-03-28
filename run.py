@@ -206,19 +206,18 @@ def compare_guess(guess, word, guesses_left):
     Function that compares user's guess with the word to guess and already used letters.
     Returns the correct guess or appends the wrong guess to used_letters list.
     """
-    if guess in used_letters:
+    if guess in used_letters:                               # Doesn't work
         print(f"You've already guessed {guess}. Try again.")
         return False
-    elif guess not in word:
+    elif guess not in word:                                 # Doesn't work
         used_letters.append(guess)
         guesses_left -= 1
         print(f"Wrong guess, {guess} is not correct.")
         return guesses_left
-    else:
+    else:                                                   # Works
         print(f"Great job, {guess} is correct!")
-        blanks = blanks.replace("_", guess, 1)
         used_letters.append(guess)
-        return blanks
+        return " ".join([letter if letter in used_letters else "_" for letter in word])
 
 
 def choice_play_again():
