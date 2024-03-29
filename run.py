@@ -180,7 +180,6 @@ def get_guess():
         guess = input("Guess a letter: ").strip().upper()
         if validate_guess(guess, used_letters):
             print("rendering function: get_guess")
-            break
     return guess
 
 
