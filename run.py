@@ -1,17 +1,20 @@
 import random
 
+# Constants
 
 # Words to guess in a tuple (immutable)
-words = ('ant baboon badger bat bear beaver camel cat clam cobra cougar '
-         'coyote crow deer dog donkey duck eagle ferret fox frog goat '
-         'goose hawk lion lizard llama mole monkey moose mouse mule newt '
-         'otter owl panda parrot pigeon python rabbit ram rat raven '
-         'rhino salmon seal shark sheep skunk sloth snake spider '
-         'stork swan tiger toad trout turkey turtle weasel whale wolf '
-         'wombat zebra ').split()
+WORDS = (
+    "ANT BABOON BADGER BAT BEAR BEAVER CAMEL CAT CLAM COBRA COUGAR"
+    "COYOTE CROW DEER DOG DONKEY DUCK EAGLE FERRET FOX FROG GOAT"
+    "GOOSE HAWK LION LIZARD LLAMA MOLE MONKEY MOOSE MOUSE MULE NEWT"
+    "OTTER OWL PANDA PARROT PIGEON PYTHON RABBIT RAM RAT RAVEN"
+    "RHINO SALMON SEAL SHARK SHEEP SKUNK SLOTH SNAKE SPIDER"
+    "STORK SWAN TIGER TOAD TROUT TURKEY TURTLE WEASEL WHALE WOLF"
+    "WOMBAT ZEBRA"
+    ).split()
 
 # r is raw string notation to solve syntax issues with hangman drawing. 
-hangman_drawing = [r'''
+HANGMAN_DRAWING = [r'''
   +---+
   |   |
       |
@@ -63,7 +66,7 @@ hangman_drawing = [r'''
 =========''']
 
 # global variables
-guesses_left = len(hangman_drawing) - 1
+guesses_left = len(HANGMAN_DRAWING) - 1
 print(guesses_left)
 
 used_letters = []
@@ -71,7 +74,7 @@ print(used_letters)
 
 # Generate a random word from the tuple words.
 # Convert word to uppercase for comparison with the user's guess.
-word = random.choice(words).upper()
+word = random.choice(WORDS)
 
 # Generate blanks to indicate number of letters of word to guess.
 blanks = "_ " * len(word)
@@ -83,7 +86,7 @@ def choice_play_game():
     Choice is to continue to next step to play game.
     """
     print("Welcome to a game of Hangman!")
-    print(hangman_drawing[6])
+    print(HANGMAN_DRAWING[6])
     print()
 
     while True:
@@ -215,7 +218,7 @@ def word_puzzle(used_letters):
         print(word) #To-do: delete
         print(blanks)
         print(used_letters)
-        print(hangman_drawing[guesses_left])
+        print(HANGMAN_DRAWING[guesses_left])
         return True
     if guesses_left > 0 and "_" not in blanks:
         print("Congratulations, {username}, you won!")
