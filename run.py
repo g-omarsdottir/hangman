@@ -140,7 +140,7 @@ def choice_display_rules():
         return choice_username()
     else:
         print("Invalid input. Please enter 'y' or 'n'.")
-        return user_choice_rules
+        return choice_display_rules()
 
 
 def choice_username():
@@ -166,7 +166,7 @@ def validate_username(username):
         return False
     else:
         print(f"Welcome, {username}, let the games begin!")
-        return True
+        return get_guess()
 
 
 def get_guess():
