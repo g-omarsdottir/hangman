@@ -264,13 +264,8 @@ def main():
     Function to run all game functions.
     """
     choice_play_game()
-    choice_display_rules()
-    choice_username()
-    
     guess = get_guess()
     compare_guess(guess, word, guesses_left, used_letters)
     word_puzzle(used_letters)
     
-
-
 main()
