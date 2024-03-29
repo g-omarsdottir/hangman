@@ -120,27 +120,27 @@ def choice_display_rules():
     Function that prompts the user to make a choice.
     Choice is to read the rules before playing game.
     """
-    while True:
-        user_choice_rules = input("Would you like to read the rules? (y/n) ").strip().upper()
-        if user_choice_rules == "Y":
-            print("""
-                You will get a set of blanks representing the number of letters in a word.
-                Guess the word by entering one letter at a time and press enter.
+    user_choice_rules = input("Would you like to read the rules? (y/n) ").strip().upper()
+    if user_choice_rules == "Y":
+        print("""
+            You will get a set of blanks representing the number of letters in a word.
+            
+            Guess the word by entering one letter at a time and press enter.
 
-                You have 6 guesses. 
+            You have 6 guesses. 
                         
-                If you guess correctly, your letter(s) will appear on the blank(s).
+            If you guess correctly, your letter(s) will appear on the blank(s).
                         
-                If you fail, you have one less guess left and are one step closer to the gallows. 
+            If you fail, you have one less guess left and are one step closer to the gallows. 
                 
-                So choose wisely!
+            So choose wisely!
             """)       
-            return True
-        elif user_choice_rules == "N":
-            return True
-        else:
-            print("Invalid input. Please enter 'y' or 'n'.")
-            return False
+        return choice_username()
+    elif user_choice_rules == "N":
+        return choice_username()
+    else:
+        print("Invalid input. Please enter 'y' or 'n'.")
+        return user_choice_rules
 
 
 def choice_username():
