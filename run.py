@@ -1,4 +1,5 @@
 import random
+import os
 
 # Constants
 
@@ -79,6 +80,20 @@ word = random.choice(WORDS)
 # Generate blanks to indicate number of letters of word to guess.
 blanks = "_ " * len(word)
 
+def clear_terminal():
+    """
+    Function to clear terminal screen for a better user experience.
+    Imported built in os module to utilize OS-specific command to interact with operating system.
+    """
+    os.system("cls" if os.name == "nt" else "clear")
+
+# Game functions
+
+def return_to_menu():
+    input("Press any key to return to the game menu.")
+    clear_terminal()
+    return choice_play_game()
+
 
 def choice_play_game():
     """
@@ -88,19 +103,16 @@ def choice_play_game():
     print("Welcome to a game of Hangman!")
     print(HANGMAN_DRAWING[6])
     print()
-
-    while True:
-
-        user_choice_play = input("Would you like to play? (y/n): ").strip().upper()
-        if user_choice_play == "N":
-            print("You choose not to play. See you later, alligator!")
-            return False
-        elif user_choice_play == "Y":
-            print("You choose to play, glad to have you on board!")
-            return True
-        else:
-            print("Invalid input. Please enter 'y' or 'n'.")
-            return False
+    user_choice_play = input("Would you like to play? (y/n): ").strip().upper()
+    if user_choice_play == "N":
+        print("You choose not to play. See you later, alligator!")
+        return return_to_menu()
+    elif user_choice_play == "Y":
+        print("You choose to play, glad to have you on board!")
+        return choice_display_rules()
+    else:
+        print("Invalid input. Please enter 'y' or 'n'.")
+        return user_choice_play
 
 
 def choice_display_rules():
