@@ -67,28 +67,24 @@ HANGMAN_DRAWING = [r'''
 =========''']
 
 # global variables
-allowed_wrong_guesses = len(HANGMAN_DRAWING) - 1
+allowed_wrong_guesses = 6
 print("Allowed wrong guesses: ", allowed_wrong_guesses)
 
-wrong_guesses = 0
-print("Wrong guesses: ", wrong_guesses)
 
-guesses_left = allowed_wrong_guesses - wrong_guesses
-print("Guesses left: ", guesses_left)
-
-used_letters = []
-print(used_letters)
+right_guesses = []
+wrong_guesses = []
 
 # Generate a random word from the tuple words.
 # Convert word to uppercase for comparison with the user's guess.
 word = random.choice(WORDS)
+unique_letters_in_word  = len(list(set(word)))
 
 # Generate dashes as "blanks" to indicate number of letters of word to guess.
 blanks = "_ " * len(word)
 
 def clear_terminal():
     """
-    Function to clear terminal screen for a better user experience.
+    Clear terminal screen for a better user experience.
     Imported built in os module to utilize OS-specific command to interact with operating system.
     """
     os.system("cls" if os.name == "nt" else "clear")
@@ -96,6 +92,9 @@ def clear_terminal():
 # Game functions
 
 def return_to_menu():
+    """
+    Enables user to return to the game in case of unintended exit from game.
+    """
     input("Press any key to return to the game menu.")
     clear_terminal()
     return choice_play_game()
@@ -103,8 +102,8 @@ def return_to_menu():
 
 def choice_play_game():
     """
-    Function that welcomes the user and prompts to make a choice.
-    Choice is to continue to next step to play game.
+    Welcomes user and prompts to make a choice.
+    Choice is to continue to next step to play game or exit.
     """
     print("Welcome to a game of Hangman!")
     print(HANGMAN_DRAWING[6])
@@ -118,12 +117,12 @@ def choice_play_game():
         return choice_display_rules()
     else:
         print("Invalid input. Please enter 'y' or 'n'.")
-        return user_choice_play
+        user_choice_play
 
 
 def choice_display_rules():
     """
-    Function that prompts the user to make a choice.
+    Prompts the user to make a choice.
     Choice is to read the rules before playing game.
     """
     user_choice_rules = input("Would you like to read the rules? (y/n) ").strip().upper()
@@ -141,12 +140,12 @@ def choice_display_rules():
                 
             So choose wisely!
             """)       
-        return choice_username()
+        choice_username()
     elif user_choice_rules == "N":
-        return choice_username()
+        choice_username()
     else:
         print("Invalid input. Please enter 'y' or 'n'.")
-        return choice_display_rules()
+        choice_display_rules()
 
 
 def choice_username():
@@ -172,7 +171,7 @@ def validate_username(username):
         return False
     else:
         print(f"Welcome, {username}, let the games begin!")
-        return get_guess()
+        return True
 
 
 def get_guess():
@@ -181,17 +180,15 @@ def get_guess():
     Convert input to uppercase for comparison with the word to guess.
     Passes the letter for validation to the validate_guess function.
     """
-    while True:
-        word_puzzle(used_letters, guesses_left, allowed_wrong_guesses, wrong_guesses)
-        guess = input("Guess a letter: ").strip().upper()
-        if validate_guess(guess, used_letters):
-            print("rendering function: get_guess")
+    guess = input("Guess a letter: ").strip().upper()
+    if validate_guess(guess):
+        print("rendering function: get_guess")
     return guess
 
 
-def validate_guess(guess, used_letters):
+def validate_guess(guess):
     """
-    Function that validates user input to ensure it is a single letter.
+    Validate user input to ensure it is a single letter.
     Returns the validated letter or False if input is invalid.
     """
     if " " in guess or not guess.isalpha():
@@ -202,48 +199,43 @@ def validate_guess(guess, used_letters):
         return False
     else:
         print(f"Let's see if {guess} works...")
-        return compare_guess(guess, word, wrong_guesses, guesses_left, used_letters)
+        return True
 
 
-def compare_guess(guess, word, wrong_guesses, guesses_left, used_letters):
+def compare_guess(guess):
     """
-    Function that compares user's guess with the word to guess and already used letters.
-    Returns the correct guess or appends the wrong guess to used_letters list.
-    Updates count of wrong guesses.
+    Compare user's guess with the word to guess and already guessed letters.
     """
-    while guesses_left > 0:
-        word_puzzle(used_letters, guesses_left, allowed_wrong_guesses, wrong_guesses)
-        if guess in used_letters:
-            print(f"You've already guessed {guess}. Try again.")
-            return
-        elif guess not in word:
-            used_letters.append(guess)
-            wrong_guesses += 1
-            print(f"Wrong guess, {guess} is not correct.")
-            used_letters = " ".join([letter if letter in used_letters else "_" for letter in word])
-            return wrong_guesses, guesses_left, used_letters
-        else:
-            print(f"Great job, {guess} is correct!")            
-            used_letters.append(guess)                          
-            return " ".join([letter if letter in used_letters else "_" for letter in word]) 
+    word_puzzle(allowed_wrong_guesses, wrong_guesses)
+    if guess in right_guesses or wrong_guesses:
+        print(f"You've already guessed {guess}. Try again.")
+        return
+    elif guess not in word:
+        wrong_guesses.append(guess)
+        print(f"Wrong guess, {guess} is not correct.")
+    else:
+        right_guesses.append(guess)
+        print(f"Great job, {guess} is correct!")
+                                
 
-
-def word_puzzle(used_letters, guesses_left, allowed_wrong_guesses, wrong_guesses):
+def word_puzzle(allowed_wrong_guesses, wrong_guesses):
     """
     Function that displays the word puzzle to the user.
     Ends game when winning or losing conditions are met.
     """
     print(word) #To-do: delete
     print(blanks)
-    print(used_letters)
-    print(HANGMAN_DRAWING[guesses_left])
+    print(HANGMAN_DRAWING[len(wrong_guesses)])
     print("Allowed wrong guesses: ", allowed_wrong_guesses)
     print("Wrong guesses: ", wrong_guesses)
+    guesses_left = allowed_wrong_guesses - len(wrong_guesses)
     print("Guesses left: ", guesses_left)
-    if guesses_left > 0 and "_" not in blanks:
+    if len(right_guesses) is unique_letters_in_word:
         print("Congratulations, {username}, you won!")
-    elif guesses_left == 0 and "_" in blanks:
-        print("Too bad, {}, you lost.")
+        print(f"The word to guess was: {word}")
+        print("len(right_guesses)", len(right_guesses), unique_letters_in_word)
+    elif len(wrong_guesses) == allowed_wrong_guesses:
+        print("len(wrong_guesses)", len(wrong_guesses), allowed_wrong_guesses)
         return choice_play_again()
 
 
@@ -273,7 +265,7 @@ def main():
     """
     choice_play_game()
     guess = get_guess()
-    compare_guess(guess, word, wrong_guesses, guesses_left, used_letters)
-    word_puzzle(used_letters, guesses_left, allowed_wrong_guesses, wrong_guesses)
+    compare_guess(guess, word, wrong_guesses)
+    word_puzzle(allowed_wrong_guesses, wrong_guesses)
     
 main()
