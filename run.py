@@ -78,7 +78,7 @@ wrong_guesses = []
 word = random.choice(WORDS)
 
 # Stores the length of unique letters in the word to guess
-unique_letters_in_word  = len(list(set(word)))
+unique_letters_in_word = len(list(set(word)))
 
 # Generate dashes as to indicate number of letters of word to guess.
 word_puzzle = "_ " * len(word)
@@ -201,6 +201,15 @@ def display_game():
     print()
 
 
+
+def display_user_feedback(user_feedback):
+    """
+    Displays user feedback for user guess.
+    In a separate function to ensure value assignment before calling.
+    """
+    print(user_feedback)
+
+
 def get_guess():
     """
     Prompts the user to guess a letter.
@@ -232,15 +241,16 @@ def validate_guess(guess):
 def compare_guess(guess):
     """
     Compares user's guess with the word to guess and already guessed letters.
+    Returns user feedback for user guess.
     """
     if guess in right_guesses or guess in wrong_guesses:
-        print(f"You've already guessed {guess}. Try again.")
+        return f"You've already guessed {guess}. Try again."
     elif guess not in word:
         wrong_guesses.append(guess)
-        print(f"Wrong guess, {guess} is not correct.")
+        return f"Wrong guess, {guess} is not correct."
     else:
         right_guesses.append(guess)
-        print(f"Great job, {guess} is correct!")
+        return f"Great job, {guess} is correct!"
 
 
 def choice_play_again():
@@ -270,16 +280,21 @@ def main():
     while True:
         display_game()
         guess = get_guess()
-        compare_guess(guess)
-    if len(wrong_guesses) == allowed_wrong_guesses:
-        print("Too bad, you lost.")
-        print("len(wrong_guesses)", len(wrong_guesses), allowed_wrong_guesses)
-        choice_play_again()
-    elif len(right_guesses) is unique_letters_in_word:
-        print("Congratulations, you won!")
-        print(f"The word to guess was: {word}")
-        print("len(right_guesses)", len(right_guesses), unique_letters_in_word)
-        choice_play_again()
+        user_feedback = compare_guess(guess)
+        display_user_feedback(user_feedback)
+        if len(wrong_guesses) == allowed_wrong_guesses:
+            display_game()
+            print()
+            print("Too bad, you lost.")
+            print("len(wrong_guesses)", len(wrong_guesses), allowed_wrong_guesses)
+            choice_play_again()
+        elif len(right_guesses) is unique_letters_in_word:
+            display_game()
+            print()
+            print("Congratulations, you won!")
+            print(f"The word to guess was: {word}")
+            print("len(right_guesses)", len(right_guesses), unique_letters_in_word)
+            choice_play_again()
 
 
 main()
