@@ -70,7 +70,6 @@ HANGMAN_DRAWING = [r'''
 allowed_wrong_guesses = 6
 print("Allowed wrong guesses: ", allowed_wrong_guesses)
 
-
 right_guesses = []
 wrong_guesses = []
 
@@ -177,6 +176,24 @@ def validate_username(username):
         return True
 
 
+def display_game():
+    """
+    Function that displays the word puzzle to the user.
+    Ends game when winning or losing conditions are met.
+    """
+    print(HANGMAN_DRAWING[len(wrong_guesses)])
+    print(word) #To-do: delete
+    guesses_left = allowed_wrong_guesses - len(wrong_guesses)
+    print("Rendering display_game: Guesses left: ", guesses_left)
+    print()
+    word_puzzle = [letter if letter in right_guesses else "_" for letter in word]
+    print("The Word to guess is: ", " ".join(word_puzzle))
+    print()
+    used_letters = (right_guesses + wrong_guesses)
+    print("Used letters: ", " ".join(used_letters))
+    print()
+
+
 def get_guess():
     """
     Function to prompt the user to guess a letter.
@@ -207,7 +224,7 @@ def validate_guess(guess):
 
 def compare_guess(guess):
     """
-    Compare user's guess with the word to guess and already guessed letters.
+    Compares user's guess with the word to guess and already guessed letters.
     """
     if guess in right_guesses or guess in wrong_guesses:
         print(f"You've already guessed {guess}. Try again.")
@@ -217,28 +234,8 @@ def compare_guess(guess):
     else:
         right_guesses.append(guess)
         print(f"Great job, {guess} is correct!")
-                                
 
-def display_game():
-    """
-    Function that displays the word puzzle to the user.
-    Ends game when winning or losing conditions are met.
-    """
-    print(HANGMAN_DRAWING[len(wrong_guesses)])
-    print(word) #To-do: delete
-    print("Allowed wrong guesses: ", allowed_wrong_guesses)
-    print("Wrong guesses: ", wrong_guesses)
-    guesses_left = allowed_wrong_guesses - len(wrong_guesses)
-    print("Rendering display_game: Guesses left: ", guesses_left)
-    print()
-    word_puzzle = [letter if letter in right_guesses else "_" for letter in word]
-    print("The Word to guess is: ", " ".join(word_puzzle))
-    print()
-    used_letters = (right_guesses + wrong_guesses)
-    print("Used letters: ", " ".join(used_letters))
-    print()
-    
-   
+
 def choice_play_again():
     """
     Function that prompts the user to make a choice.
