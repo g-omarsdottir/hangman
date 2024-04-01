@@ -214,14 +214,12 @@ def compare_guess(guess):
     elif guess not in word:
         wrong_guesses.append(guess)
         print(f"Wrong guess, {guess} is not correct.")
-        word_puzzle = [letter if letter in right_guesses else "_" for letter in word]
     else:
         right_guesses.append(guess)
         print(f"Great job, {guess} is correct!")
-        word_puzzle = [letter if letter in right_guesses else "_" for letter in word]
                                 
 
-def display_game(allowed_wrong_guesses, wrong_guesses):
+def display_game():
     """
     Function that displays the word puzzle to the user.
     Ends game when winning or losing conditions are met.
@@ -232,10 +230,15 @@ def display_game(allowed_wrong_guesses, wrong_guesses):
     print("Wrong guesses: ", wrong_guesses)
     guesses_left = allowed_wrong_guesses - len(wrong_guesses)
     print("Rendering display_game: Guesses left: ", guesses_left)
+    print()
+    word_puzzle = [letter if letter in right_guesses else "_" for letter in word]
+    print("The Word to guess is: ", " ".join(word_puzzle))
+    print()
+    used_letters = (right_guesses + wrong_guesses)
+    print("Used letters: ", " ".join(used_letters))
+    print()
     
    
-
-
 def choice_play_again():
     """
     Function that prompts the user to make a choice.
