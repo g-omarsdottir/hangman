@@ -226,21 +226,13 @@ def display_game(allowed_wrong_guesses, wrong_guesses):
     Function that displays the word puzzle to the user.
     Ends game when winning or losing conditions are met.
     """
-    print(word) #To-do: delete
     print(HANGMAN_DRAWING[len(wrong_guesses)])
+    print(word) #To-do: delete
     print("Allowed wrong guesses: ", allowed_wrong_guesses)
     print("Wrong guesses: ", wrong_guesses)
     guesses_left = allowed_wrong_guesses - len(wrong_guesses)
     print("Rendering display_game: Guesses left: ", guesses_left)
-    if len(wrong_guesses) == allowed_wrong_guesses:
-        print("len(wrong_guesses)", len(wrong_guesses), allowed_wrong_guesses)
-        print("Too bad, you lost.")
-        choice_play_again()
-    elif len(right_guesses) is unique_letters_in_word:
-        print("Congratulations, you won!")
-        print(f"The word to guess was: {word}")
-        print("len(right_guesses)", len(right_guesses), unique_letters_in_word)
-        choice_play_again()
+    
    
 
 
@@ -263,12 +255,23 @@ def choice_play_again():
 
 def main():
     """
-    Function to run all game functions.
+    Run all game functions.
+    Handles win or loss condition to end game.
     """
     choice_play_game()
-    display_game()
-    guess = get_guess()
-    compare_guess(guess, word, wrong_guesses)
-    
-    
+    while True:
+        display_game()
+        guess = get_guess()
+        compare_guess(guess)
+    if len(wrong_guesses) == allowed_wrong_guesses:
+        print("Too bad, you lost.")
+        print("len(wrong_guesses)", len(wrong_guesses), allowed_wrong_guesses)
+        choice_play_again()
+    elif len(right_guesses) is unique_letters_in_word:
+        print("Congratulations, you won!")
+        print(f"The word to guess was: {word}")
+        print("len(right_guesses)", len(right_guesses), unique_letters_in_word)
+        choice_play_again()
+
+
 main()
