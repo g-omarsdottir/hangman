@@ -14,7 +14,7 @@ WORDS = (
     "WOMBAT ZEBRA"
     ).split()
 
-# r is raw string notation to solve syntax issues with hangman drawing. 
+# r is raw string notation to solve syntax issues with hangman drawing.
 HANGMAN_DRAWING = [r'''
   +---+
   |   |
@@ -76,9 +76,11 @@ wrong_guesses = []
 # Generate a random word from the tuple words.
 # Convert word to uppercase for comparison with the user's guess.
 word = random.choice(WORDS)
+
+# Stores the length of unique letters in the word to guess
 unique_letters_in_word  = len(list(set(word)))
 
-# Generate dashes as "blanks" to indicate number of letters of word to guess.
+# Generate dashes as to indicate number of letters of word to guess.
 word_puzzle = "_ " * len(word)
 
 def clear_terminal():
@@ -103,12 +105,15 @@ def choice_play_game():
     """
     Welcomes user and prompts to make a choice.
     Choice is to continue to next step to play game or exit.
+    Validates user input.
     """
     print("Welcome to a game of Hangman!")
     print(HANGMAN_DRAWING[6])
     print()
     right_guesses.clear()
     wrong_guesses.clear()
+    global word_puzzle
+    word_puzzle = ""
 
     user_choice_play = input("Would you like to play? (y/n): ").strip().upper()
     if user_choice_play == "N":
@@ -126,6 +131,7 @@ def choice_display_rules():
     """
     Prompts the user to make a choice.
     Choice is to read the rules before playing game.
+    Validates user input.
     """
     user_choice_rules = input("Would you like to read the rules? (y/n) ").strip().upper()
     if user_choice_rules == "Y":
@@ -135,11 +141,11 @@ def choice_display_rules():
             Guess the word by entering one letter at a time and press enter.
 
             You have 6 guesses. 
-                        
+
             If you guess correctly, your letter(s) will appear on the blank(s).
-                        
+
             If you fail, you have one less guess left and are one step closer to the gallows. 
-                
+
             So choose wisely!
             """)       
         choice_username()
@@ -153,7 +159,7 @@ def choice_display_rules():
 def choice_username():
     """
     Function to prompt the user to enter a username.
-    Passes the username input for validation to the validate_username function.
+    Passes the user input for validation to the validate_username function.
     """
     while True:
         username = input("Choose your username: ").strip()
@@ -163,7 +169,7 @@ def choice_username():
 
 def validate_username(username):
     """
-    Validate the username input to ensure it is between 1 and 10 characters.
+    Validates user input to ensure it is between 1 and 10 characters.
     """
     if " " in username or not username.isalpha():
         print("Invalid username. Please use alphabetic characters and no spaces.")
@@ -178,8 +184,9 @@ def validate_username(username):
 
 def display_game():
     """
-    Function that displays the word puzzle to the user.
-    Ends game when winning or losing conditions are met.
+    Displays the game to the user.
+    Updates the word to guess (word_puzzle) if correct letter is guessed.
+    Updates the list of used letters.
     """
     print(HANGMAN_DRAWING[len(wrong_guesses)])
     print(word) #To-do: delete
@@ -196,8 +203,8 @@ def display_game():
 
 def get_guess():
     """
-    Function to prompt the user to guess a letter.
-    Convert input to uppercase for comparison with the word to guess.
+    Prompts the user to guess a letter.
+    Converts input to uppercase for comparison with the word to guess.
     Passes the letter for validation to the validate_guess function.
     """
     guess = input("Guess a letter: ").strip().upper()
@@ -208,7 +215,7 @@ def get_guess():
 
 def validate_guess(guess):
     """
-    Validate user input to ensure it is a single letter.
+    Validates user input to ensure it is a single letter.
     Returns the validated letter or False if input is invalid.
     """
     if " " in guess or not guess.isalpha():
@@ -238,8 +245,9 @@ def compare_guess(guess):
 
 def choice_play_again():
     """
-    Function that prompts the user to make a choice.
+    Prompts the user to make a choice.
     Choice is to play again or not.
+    Validates user input.
     """
     user_choice_play_again = input("Would you like to play again? (y/n) ").strip().upper()
     if user_choice_play_again == "N":
