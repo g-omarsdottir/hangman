@@ -80,7 +80,7 @@ word = random.choice(WORDS)
 unique_letters_in_word  = len(list(set(word)))
 
 # Generate dashes as "blanks" to indicate number of letters of word to guess.
-blanks = "_ " * len(word)
+word_puzzle = "_ " * len(word)
 
 def clear_terminal():
     """
@@ -159,7 +159,7 @@ def choice_username():
     while True:
         username = input("Choose your username: ").strip()
         if validate_username(username):
-            return username
+            return True
 
 
 def validate_username(username):
@@ -209,33 +209,34 @@ def compare_guess(guess):
     """
     Compare user's guess with the word to guess and already guessed letters.
     """
-    if guess in right_guesses or wrong_guesses:
+    if guess in right_guesses or guess in wrong_guesses:
         print(f"You've already guessed {guess}. Try again.")
     elif guess not in word:
         wrong_guesses.append(guess)
         print(f"Wrong guess, {guess} is not correct.")
+        word_puzzle = [letter if letter in right_guesses else "_" for letter in word]
     else:
         right_guesses.append(guess)
         print(f"Great job, {guess} is correct!")
+        word_puzzle = [letter if letter in right_guesses else "_" for letter in word]
                                 
 
-def word_puzzle(allowed_wrong_guesses, wrong_guesses):
+def display_game(allowed_wrong_guesses, wrong_guesses):
     """
     Function that displays the word puzzle to the user.
     Ends game when winning or losing conditions are met.
     """
     print(word) #To-do: delete
-    print(blanks)
     print(HANGMAN_DRAWING[len(wrong_guesses)])
     print("Allowed wrong guesses: ", allowed_wrong_guesses)
     print("Wrong guesses: ", wrong_guesses)
     guesses_left = allowed_wrong_guesses - len(wrong_guesses)
-    print("Guesses left: ", guesses_left)
-    elif len(wrong_guesses) == allowed_wrong_guesses:
+    print("Rendering display_game: Guesses left: ", guesses_left)
+    if len(wrong_guesses) == allowed_wrong_guesses:
         print("len(wrong_guesses)", len(wrong_guesses), allowed_wrong_guesses)
         print("Too bad, you lost.")
         choice_play_again()
-    if len(right_guesses) is unique_letters_in_word:
+    elif len(right_guesses) is unique_letters_in_word:
         print("Congratulations, you won!")
         print(f"The word to guess was: {word}")
         print("len(right_guesses)", len(right_guesses), unique_letters_in_word)
@@ -249,15 +250,15 @@ def choice_play_again():
     Choice is to play again or not.
     """
     user_choice_play_again = input("Would you like to play again? (y/n) ").strip().upper()
-        if user_choice_play_again == "N":
-            print("You chose not to play again. See you in a while, crocodile!")
-            return_to_menu()
-        elif user_choice_play_again == "Y":
-            print("You chose to play again, good stuff!")
-            choice_play_game()
-        else:
-            print("Invalid input. Please enter 'y' or 'n'.")
-            user_choice_play_again
+    if user_choice_play_again == "N":
+        print("You chose not to play again. See you in a while, crocodile!")
+        return_to_menu()
+    elif user_choice_play_again == "Y":
+        print("You chose to play again, good stuff!")
+        choice_play_game()
+    else:
+        print("Invalid input. Please enter 'y' or 'n'.")
+        user_choice_play_again
 
 
 def main():
@@ -265,8 +266,8 @@ def main():
     Function to run all game functions.
     """
     choice_play_game()
+    display_game()
     guess = get_guess()
-    word_puzzle(allowed_wrong_guesses, wrong_guesses)
     compare_guess(guess, word, wrong_guesses)
     
     
