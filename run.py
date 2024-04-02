@@ -203,13 +203,13 @@ def display_game():
     print()
 
 
-
 def display_user_feedback(user_feedback):
     """
     Displays user feedback for user guess.
     In a separate function to ensure value assignment before calling.
     """
     print(user_feedback)
+    print("Type user_feedback: ", type(user_feedback))
 
 
 def get_guess():
@@ -221,7 +221,9 @@ def get_guess():
     guess = input("Guess a letter: ").strip().upper()
     if validate_guess(guess):
         print("rendering function: get_guess")
-    return guess
+        return guess
+    else:
+        get_guess()
 
 
 def validate_guess(guess):
@@ -245,6 +247,8 @@ def compare_guess(guess):
     Compares user's guess with the word to guess and already guessed letters.
     Returns user feedback for user guess.
     """
+    print("Type guess: ", type(guess))
+    print("Type word: ", type(word))
     if guess in right_guesses or guess in wrong_guesses:
         return f"You've already guessed {guess}. Try again."
     elif guess not in word:
@@ -284,10 +288,13 @@ def main():
         guess = get_guess()
         user_feedback = compare_guess(guess)
         display_user_feedback(user_feedback)
+        print("Type guess: ", type(guess))
+        print("Type word: ", type(word))
         if len(wrong_guesses) == allowed_wrong_guesses:
             display_game()
             print()
             print("Too bad, you lost.")
+            print(f"The word to guess was: {word}")
             print("len(wrong_guesses)", len(wrong_guesses), allowed_wrong_guesses)
             choice_play_again()
         elif len(right_guesses) == unique_letters_in_word:
