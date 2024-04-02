@@ -87,8 +87,9 @@ word_puzzle = "_ " * len(word)
 
 def clear_terminal():
     """
-    Clear terminal screen for a better user experience.
-    Imported built in os module to utilize OS-specific command to interact with operating system.
+    Clears terminal screen for a better user experience.
+    Imported built in os module to utilize OS-specific
+        command to interact with operating system.
     """
     os.system("cls" if os.name == "nt" else "clear")
 
@@ -139,21 +140,28 @@ def choice_display_rules():
     Choice is to read the rules before playing game.
     Validates user input.
     """
-    user_choice_rules = input("Would you like to read the rules? (y/n) ").strip().upper()
+    user_choice_rules = input(
+        "Would you like to read the rules? (y/n) "
+        ).strip().upper()
     if user_choice_rules == "Y":
         print("""
-            You will get a set of blanks representing the number of letters in a word.
-            
-            Guess the word by entering one letter at a time and press enter.
+            You will get a set of blanks representing
+                the number of letters in a word.
 
-            You have 6 guesses. 
+            Guess the word by entering one letter at a time
+                and press enter.
 
-            If you guess correctly, your letter(s) will appear on the blank(s).
+            You have 6 guesses.
 
-            If you fail, you have one less guess left and are one step closer to the gallows. 
+            If you guess correctly,
+                your letter(s) will appear on the blank(s).
+
+            If you fail,
+                you have one less guess left and
+                are one step closer to the gallows.
 
             So choose wisely!
-            """)       
+            """)
         choice_username()
     elif user_choice_rules == "N":
         choice_username()
@@ -175,13 +183,16 @@ def choice_username():
 
 def validate_username(username):
     """
-    Validates user input to ensure it is between 1 and 10 characters.
+    Validates user input.
+    Ensures it is between 1 and 10 characters.
     """
     if " " in username or not username.isalpha():
-        print("Invalid username. Please use alphabetic characters and no spaces.")
+        print(
+            "Invalid username. Please use letters and no spaces.")
         return False
     elif len(username) < 1 or len(username) > 10:
-        print("Invalid username. Please use between 1 and 10 characters.")
+        print(
+            "Invalid username. Please use between 1 and 10 characters.")
         return False
     else:
         print(f"Welcome, {username}, let the games begin!")
@@ -191,15 +202,15 @@ def validate_username(username):
 def display_game():
     """
     Displays the game to the user.
-    Updates the displayed word_puzzle if correct letter is guessed.
+    Updates the displayed word_puzzle.
     Updates the list of used letters.
     """
     print(HANGMAN_DRAWING[len(wrong_guesses)])
-    print(word) #To-do: delete
     guesses_left = allowed_wrong_guesses - len(wrong_guesses)
     print("Rendering display_game: Guesses left: ", guesses_left)
     print()
-    word_puzzle = [letter if letter in right_guesses else "_" for letter in word]
+    word_puzzle = [
+        letter if letter in right_guesses else "_" for letter in word]
     print("The Word to guess is: ", " ".join(word_puzzle))
     print()
     used_letters = right_guesses + wrong_guesses
@@ -211,13 +222,14 @@ def display_user_feedback(user_feedback):
     """
     Displays user feedback for each user guess.
     In a separate function to ensure value assignment before calling.
-    Prints a decorative line above and below for visual separation of feedback.
+    Prints a decorative linevisual separation of feedback.
     """
     print("\033[1;32;40m" + "—" * 39 + "\033[0m\n")
     print()
     print(user_feedback)
     print()
     print("\033[1;32;40m" + "—" * 39 + "\033[0m\n")
+
 
 def get_guess():
     """
@@ -269,7 +281,9 @@ def choice_play_again():
     Choice is to play again or not.
     Validates user input.
     """
-    user_choice_play_again = input("Would you like to play again? (y/n) ").strip().upper()
+    user_choice_play_again = input(
+        "Would you like to play again? (y/n) "
+        ).strip().upper()
     if user_choice_play_again == "N":
         print("You chose not to play again. See you in a while, crocodile!")
         return_to_menu()
@@ -297,14 +311,12 @@ def main():
             print()
             print("Too bad, you lost.")
             print(f"The word to guess was: {word}")
-            print("len(wrong_guesses)", len(wrong_guesses), allowed_wrong_guesses)
             choice_play_again()
         elif len(right_guesses) == unique_letters_in_word:
             display_game()
             print()
             print("Congratulations, you won!")
             print(f"The word to guess was: {word}")
-            print("len(right_guesses)", len(right_guesses), unique_letters_in_word)
             choice_play_again()
 
 
