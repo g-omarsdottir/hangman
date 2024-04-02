@@ -68,7 +68,6 @@ HANGMAN_DRAWING = [r'''
 
 # global variables
 allowed_wrong_guesses = 6
-print("Allowed wrong guesses: ", allowed_wrong_guesses)
 
 right_guesses = []
 wrong_guesses = []
@@ -77,11 +76,14 @@ wrong_guesses = []
 # Convert word to uppercase for comparison with the user's guess.
 word = random.choice(WORDS)
 
-# Stores the length of unique letters in the word to guess
+# Stores the length of unique letters in the word to guess,
 unique_letters_in_word = len(list(set(word)))
 
-# Generate dashes as to indicate number of letters of word to guess.
+# Generate dashes to indicate number of letters of word to guess.
 word_puzzle = "_ " * len(word)
+
+
+# Functions
 
 def clear_terminal():
     """
@@ -89,6 +91,7 @@ def clear_terminal():
     Imported built in os module to utilize OS-specific command to interact with operating system.
     """
     os.system("cls" if os.name == "nt" else "clear")
+
 
 # Game functions
 
@@ -106,6 +109,7 @@ def choice_play_game():
     Welcomes user and prompts to make a choice.
     Choice is to continue to next step to play game or exit.
     Validates user input.
+    Resets game state when user plays again.
     """
     print("Welcome to a game of Hangman!")
     print(HANGMAN_DRAWING[6])
@@ -187,7 +191,7 @@ def validate_username(username):
 def display_game():
     """
     Displays the game to the user.
-    Updates the word to guess (word_puzzle) if correct letter is guessed.
+    Updates the displayed word_puzzle if correct letter is guessed.
     Updates the list of used letters.
     """
     print(HANGMAN_DRAWING[len(wrong_guesses)])
@@ -198,7 +202,7 @@ def display_game():
     word_puzzle = [letter if letter in right_guesses else "_" for letter in word]
     print("The Word to guess is: ", " ".join(word_puzzle))
     print()
-    used_letters = (right_guesses + wrong_guesses)
+    used_letters = right_guesses + wrong_guesses
     print("Used letters: ", " ".join(used_letters))
     print()
 
@@ -209,7 +213,6 @@ def display_user_feedback(user_feedback):
     In a separate function to ensure value assignment before calling.
     """
     print(user_feedback)
-    print("Type user_feedback: ", type(user_feedback))
 
 
 def get_guess():
@@ -220,7 +223,6 @@ def get_guess():
     """
     guess = input("Guess a letter: ").strip().upper()
     if validate_guess(guess):
-        print("rendering function: get_guess")
         return guess
     else:
         get_guess()
@@ -247,8 +249,6 @@ def compare_guess(guess):
     Compares user's guess with the word to guess and already guessed letters.
     Returns user feedback for user guess.
     """
-    print("Type guess: ", type(guess))
-    print("Type word: ", type(word))
     if guess in right_guesses or guess in wrong_guesses:
         return f"You've already guessed {guess}. Try again."
     elif guess not in word:
