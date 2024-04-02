@@ -70,14 +70,12 @@ HANGMAN_DRAWING = [r'''
 allowed_wrong_guesses = 6
 
 right_guesses = []
+
 wrong_guesses = []
 
 # Generate a random word from the tuple words.
 # Convert word to uppercase for comparison with the user's guess.
 word = random.choice(WORDS)
-
-# Stores the length of unique letters in the word to guess,
-unique_letters_in_word = len(list(set(word)))
 
 # Generate dashes to indicate number of letters of word to guess.
 word_puzzle = "_ " * len(word)
@@ -312,7 +310,7 @@ def main():
             print("Too bad, you lost.")
             print(f"The word to guess was: {word}")
             choice_play_again()
-        elif len(right_guesses) == unique_letters_in_word:
+        elif set(right_guesses) == set(word):
             display_game()
             print()
             print("Congratulations, you won!")
