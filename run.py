@@ -209,11 +209,15 @@ def display_game():
 
 def display_user_feedback(user_feedback):
     """
-    Displays user feedback for user guess.
+    Displays user feedback for each user guess.
     In a separate function to ensure value assignment before calling.
+    Prints a decorative line above and below for visual separation of feedback.
     """
+    print("\033[1;32;40m" + "—" * 39 + "\033[0m\n")
+    print()
     print(user_feedback)
-
+    print()
+    print("\033[1;32;40m" + "—" * 39 + "\033[0m\n")
 
 def get_guess():
     """
@@ -288,8 +292,6 @@ def main():
         guess = get_guess()
         user_feedback = compare_guess(guess)
         display_user_feedback(user_feedback)
-        print("Type guess: ", type(guess))
-        print("Type word: ", type(word))
         if len(wrong_guesses) == allowed_wrong_guesses:
             display_game()
             print()
