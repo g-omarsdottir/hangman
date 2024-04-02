@@ -230,17 +230,6 @@ def display_game():
     print()
 
 
-def display_user_feedback(user_feedback):
-    """
-    Displays user feedback for each user guess.
-    In a separate function to ensure value assignment before calling.
-    Emphasise user feedback with visual separator.
-    """
-    visual_separator()
-    print(user_feedback)
-    visual_separator()
-
-
 def get_guess():
     """
     Prompts the user to guess a letter.
@@ -261,7 +250,7 @@ def validate_guess(guess):
     """
     Validates user input to ensure it is a single letter.
     Returns the validated letter or False if input is invalid.
-    Emphasise user feedback for invalid input with visual separator.
+    Emphasises user feedback for invalid input with visual separator.
     """
     if " " in guess or not guess.isalpha():
         visual_separator()
@@ -281,17 +270,23 @@ def validate_guess(guess):
 def compare_guess(guess):
     """
     Compares user's guess with the word to guess and already guessed letters.
-    Returns user feedback for user guess.
-    User feedback displayed on terminal in function display_user_feedback.
+    Displays user feedback for each user guess.
+    Emphasises user feedback with visual separator.
     """
     if guess in right_guesses or guess in wrong_guesses:
-        return f"You've already guessed {guess}. Try again."
+        visual_separator()
+        print(f"You've already guessed {guess}. Try again.")
+        visual_separator()
     elif guess not in word:
         wrong_guesses.append(guess)
-        return f"Wrong guess, {guess} is not correct."
+        visual_separator()
+        print(f"Wrong guess, {guess} is not correct.")
+        visual_separator()
     else:
         right_guesses.append(guess)
-        return f"Great job, {guess} is correct!"
+        visual_separator()
+        print(f"Great job, {guess} is correct!")
+        visual_separator()
 
 
 def choice_play_again():
@@ -324,8 +319,7 @@ def main():
     while True:
         display_game()
         guess = get_guess()
-        user_feedback = compare_guess(guess)
-        display_user_feedback(user_feedback)
+        compare_guess(guess)
         if len(wrong_guesses) == allowed_wrong_guesses:
             display_game()
             print()
@@ -335,6 +329,7 @@ def main():
             print()
             choice_play_again()
         elif set(right_guesses) == set(word):
+            clear_terminal()
             print(HANGMAN_DRAWING[len(wrong_guesses)])
             print()
             print("Congratulations, you won!")
