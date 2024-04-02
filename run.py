@@ -247,12 +247,14 @@ def get_guess():
     Converts input to uppercase for comparison with the word to guess.
     Passes the letter for validation to the validate_guess function.
     """
-    guess = input("Guess a letter: ").strip().upper()
-    clear_terminal()
-    if validate_guess(guess):
-        return guess
-    else:
-        get_guess()
+    while True:
+        guess = input("Guess a letter: ").strip().upper()
+        clear_terminal()
+        is_guess_valid = validate_guess(guess)
+        if is_guess_valid is not False:
+            return guess
+        else:
+            display_game()
 
 
 def validate_guess(guess):
