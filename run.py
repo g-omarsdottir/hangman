@@ -330,13 +330,17 @@ def main():
             display_game()
             print()
             print("Too bad, you lost.")
+            print()
             print(f"The word to guess was: {word}")
+            print()
             choice_play_again()
         elif set(right_guesses) == set(word):
             print(HANGMAN_DRAWING[len(wrong_guesses)])
             print()
             print("Congratulations, you won!")
+            print()
             print(f"The word to guess was: {word}")
+            print()
             choice_play_again()
 
 
