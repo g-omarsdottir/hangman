@@ -107,7 +107,7 @@ def return_to_menu():
     """
     Enables user to return to the game in case of unintended exit from game.
     """
-    input("Press any key to return to the game menu.\n")
+    input("Press enter to return to the game menu.\n")
     clear_terminal()
     choice_play_game()
 
