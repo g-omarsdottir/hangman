@@ -315,8 +315,7 @@ def choice_play_again():
         return_to_menu()
     elif user_choice_play_again == "Y":
         print()
-        print("You chose to play again, good stuff!")
-        print()
+        print("Great, let's restart the game.")
         choice_play_game()
     else:
         print()
