@@ -102,15 +102,61 @@ The Python code passed through the Python Linter Validator provided by the Code 
 
 ## Deployment and Local Development
 
+The project was deployed using Heroku.
+
 ### Deployment
 
+#### Deployment using Heroku
+
+To deploy the repository:
+- Log into Heroku and navigate to the dashboard.
+- Navigate to the button “New” in the top right corner and select “Create New App” from the navigation dropdown menu.
+- Enter a name for the app. The name of the app must be unique and cannot be identical to any other app deployed by other users on Heroku.
+- Select your region, “United States” or “Europe”, from the navigation dropdown menu.
+- Click on the button “Create App”.
+- Navigate to “Settings” on the top navigation menu.
+- In the section “Config Var”, click on the button "Reveal Config Vars".
+- Click on “Add a new Config Var” and enter the following:
+    - As “key”: PORT 
+    - As “value”: 8000
+- (In case of sensitive information in creds.json, add applicable code as Config Var as well. This is not the case for deployment of this project.)
+- In the section “Buildpacks”, click on the button "Add Buildpacks".
+- Select Python by clicking on the Python image and click “Save”.
+- Again, click on the button "Add Buildpacks".
+- Select node.js by clicking on the node.js image and click “Save”.
+    - Make sure that the buildpacks are in this  order, with Python on top, and node.js underneath.
+    - If not, click on the Buildpack and drag and drop it to change the order.
+- Navigate to section “Deploy” on the top navigation menu.
+- Select "GitHub" as the deployment method.
+- Search for the repository to be deployed by using the search bar and click “Connect”.
+- Select the repository branch to be deployed.
+- Choose “Manual” or “Automatic” deployment.
+    - Manual deployment must be manually re-deployed after pushing new changes to the repository.
+- Click the button “View” to open the link to the [deployed project](https://hangman-word-puzzle-78ef7f810338.herokuapp.com/). 
+
 ### Local Development
+
+#### Local Clone
+
+To clone the repository:
+- Log in to GitHub and navigate to the repository of [this project](https://github.com/g-omarsdottir/hangman) 
+- Click on the green button "Code" to open the dropdown menu, select "Clone with HTTPS, SSH or GitHub CLI" and copy the link provided.
+- Open "Terminal" (or "Git Bash") in your code editor.
+- Change the current working directory to the location where you want the cloned directory to be made.
+- Type "git clone" in the terminal and then paste the URL copied on GitHub in step 2, above.
+- Press "Enter" and your local clone will be created.
+
+#### Fork
+
+To fork the repository:
+- Log in to Github and navigate to the repository of [this project](https://github.com/g-omarsdottir/hangman).
+- Click the button "Fork" in the top right corner to open dropdown menu and select "Create a new fork".
 
 ## Credits
 
 ### Content
 
 - [Chris Horton](https://gist.github.com/chrishorton/8510732aa9a80a03c829b09f12e20d9c) for the hangman image and the words to guess.
-- [Stack Overflow](https://stackoverflow.com/questions/50504500/deprecationwarning-invalid-escape-sequence-what-to-use-instead-of-d) for declaration of a raw string for the hangman drawing. Adding an escape character "\" for each problem makes the the drawing, which is is created with characters, less readable.
+- [Stack Overflow](https://stackoverflow.com/questions/50504500/deprecationwarning-invalid-escape-sequence-what-to-use-instead-of-d) for declaration of a raw string for the hangman drawing. Adding a backslash as an escape character " \ " for each issue makes the the drawing, which is is created with characters, less readable.
 
 ### Acknowledgements
