@@ -105,6 +105,7 @@ def return_to_menu():
     """
     Enables user to return to the game in case of unintended exit from game.
     """
+    print()
     input("Press enter to return to the game menu.\n")
     clear_terminal()
     choice_play_game()
@@ -117,6 +118,7 @@ def choice_play_game():
     Validates user input.
     Resets game state when user plays again.
     """
+    print()
     print("Welcome to a game of Hangman!")
     print(HANGMAN_DRAWING[6])
     print()
@@ -181,6 +183,7 @@ Good luck!
     elif user_choice_rules == "N":
         choice_username()
     else:
+        print()
         print("Invalid input. Please enter 'y' or 'n'.")
         choice_display_rules()
 
