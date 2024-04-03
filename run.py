@@ -304,7 +304,6 @@ def choice_play_again():
     Choice is to play again or not.
     Validates user input.
     """
-    print()
     user_choice_play_again = input(
         "Would you like to play again? (y/n)\n"
         ).strip().upper()
@@ -320,6 +319,7 @@ def choice_play_again():
     else:
         print()
         print("Invalid input. Please enter 'y' or 'n'.")
+        print()
         choice_play_again()
 
 
@@ -334,21 +334,22 @@ def main():
         guess = get_guess()
         compare_guess(guess)
         if len(wrong_guesses) == allowed_wrong_guesses:
+            clear_terminal()
             display_game()
-            print()
+            visual_separator()
             print("Too bad, you lost.")
             print()
             print(f"The word to guess was: {word}")
             print()
+            visual_separator()
             choice_play_again()
         elif set(right_guesses) == set(word):
             clear_terminal()
-            print(HANGMAN_DRAWING[len(wrong_guesses)])
-            print()
+            display_game()
+            visual_separator()
             print("Congratulations, you won!")
             print()
-            print(f"The word to guess was: {word}")
-            print()
+            visual_separator()
             choice_play_again()
 
 
