@@ -68,7 +68,19 @@ The bold green line on a black background was added to emphasise the user feedba
 
 ### Languages Used
 
+- Python
+- HTML5
+- JavaScript
+
 ### Frameworks, Libraries and Programs Used
+
+- [GitHub](https://github.com/g-omarsdottir/hangman) to store code files.
+- [Git](https://git-scm.com/) for version control.
+- [Gitpod](https://www.gitpod.io/) as a Cloud Development Environment (CDE).
+- [Heroku](https://www.heroku.com/) for deploying the project.
+- [Code Institute template](https://github.com/Code-Institute-Org/p3-template) for Gitpod and this README.
+- [PEP8 Validator](https://pep8ci.herokuapp.com/) for validating the Python code.
+- [Draw.io](https://app.diagrams.net/) to create the flowchart of game logic for the project design.
 
 ## Testing
 
