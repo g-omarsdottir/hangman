@@ -265,7 +265,6 @@ def validate_guess(guess):
         visual_separator()
         return False
     else:
-        print(f"Let's see if {guess} works...")
         return True
 
 
