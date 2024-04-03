@@ -1,37 +1,60 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Welcome to a game of Hangman
 
-Welcome,
+Mockup
 
-This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **March 14, 2023**
+Link to Live Project
 
-## Reminders
+Introduction
 
-- Your code must be placed in the `run.py` file
-- Your dependencies must be placed in the `requirements.txt` file
-- Do not edit any of the other files or your code may not deploy properly
+## Table of Contents
 
-## Creating the Heroku app
+## Project and Site Owner Goals
 
-When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
+## User Experience
 
-1. `heroku/python`
-2. `heroku/nodejs`
+### Target Audience
 
-You must then create a _Config Var_ called `PORT`. Set this to `8000`
+### First Time Visitors Goals
 
-If you have credentials, such as in the Love Sandwiches project, you must create another _Config Var_ called `CREDS` and paste the JSON into the value field.
+### Returning Visitors Goals
 
-Connect your GitHub repository and deploy as normal.
+### Frequent Visitors Goals
 
-## Constraints
+## Project Planning
 
-The deployment terminal is set to 80 columns by 24 rows. That means that each line of text needs to be 80 characters or less otherwise it will be wrapped onto a second line.
+## Features
 
----
+## Technology Used
 
-Happy coding!
+### Languages Used
 
+### Frameworks, Libraries and Programs Used
+
+## Testing
+
+### Validator Testing
+
+### Manual Testing
+
+### Testing User Stories
+
+## Bugs
+
+### Known Bugs
+
+### Resolved Bugs
+
+## Deployment and Local Development
+
+### Deployment
+
+### Local Development
 
 ## Credits
+
+### Content
+
 - [Chris Horton](https://gist.github.com/chrishorton/8510732aa9a80a03c829b09f12e20d9c) for the hangman image and the words to guess.
 - [Stack Overflow](https://stackoverflow.com/questions/50504500/deprecationwarning-invalid-escape-sequence-what-to-use-instead-of-d) for declaration of a raw string for the hangman drawing. Adding an escape character "\" for each problem makes the the drawing, which is is created with characters, less readable.
+
+### Acknowledgements
