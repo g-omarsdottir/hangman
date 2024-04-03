@@ -177,8 +177,7 @@ If you fail,
 you have one less guess left and
 you are one step closer to the gallows.
 
-Good luck!
-            """)
+Good luck!""")
         choice_username()
     elif user_choice_rules == "N":
         choice_username()
