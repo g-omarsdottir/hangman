@@ -79,12 +79,16 @@ The bold green line on a black background was added to emphasise the user feedba
 - [Gitpod](https://www.gitpod.io/) as a Cloud Development Environment (CDE).
 - [Heroku](https://www.heroku.com/) for deploying the project.
 - [Code Institute template](https://github.com/Code-Institute-Org/p3-template) for Gitpod and this README.
-- [PEP8 Validator](https://pep8ci.herokuapp.com/) for validating the Python code.
+- [Python Linter Validator](https://pep8ci.herokuapp.com/) according to the PEP 8 style guide for validating the Python code.
 - [Draw.io](https://app.diagrams.net/) to create the flowchart of game logic for the project design.
 
 ## Testing
 
 ### Validator Testing
+
+The Python code passed through the Python Linter Validator provided by the Code Institute without errors:
+
+![validator-results](/documentation/validator-results.png)
 
 ### Manual Testing
 
