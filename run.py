@@ -66,7 +66,28 @@ HANGMAN_DRAWING = [r'''
       |
 =========''']
 
-# global variables
+RULES = """
+Game rules:
+
+You will get a word puzzle as a set of dashes,
+representing the number of letters in the word to guess.
+
+Guess the word by entering one letter at a time
+and press enter.
+
+You have 6 guesses.
+
+If you guess correctly,
+your letter(s) will appear in the word puzzle.
+
+If you fail,
+you have one less guess left and
+you are one step closer to the gallows.
+
+Good luck!"""
+
+
+# Variables
 allowed_wrong_guesses = 6
 
 right_guesses = []
@@ -162,25 +183,7 @@ def choice_display_rules():
         ).strip().upper()
     clear_terminal()
     if user_choice_rules == "Y":
-        print("""
-Game rules:
-
-You will get a word puzzle as a set of dashes,
-representing the number of letters in the word to guess.
-
-Guess the word by entering one letter at a time
-and press enter.
-
-You have 6 guesses.
-
-If you guess correctly,
-your letter(s) will appear in the word puzzle.
-
-If you fail,
-you have one less guess left and
-you are one step closer to the gallows.
-
-Good luck!""")
+        print(RULES)
         choice_username()
     elif user_choice_rules == "N":
         choice_username()
