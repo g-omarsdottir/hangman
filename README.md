@@ -50,7 +50,11 @@ As a frequent visitor, I want to:
 - see how fast I can improve my learning curve and sharpen my deductive and logical thinking skills.
 
 
-## Project Planning
+## Design
+
+The flowchart depicts the flow of the game logic:
+
+![flowchart](/documentation/flowchart.png)
 
 ## Features
 
