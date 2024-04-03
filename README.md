@@ -13,22 +13,42 @@ The word to guess is randomly generated from a list of animals for a fresh chall
 
 ## Project and Site Owner Goals
 
-Create a fun retro game using my acquired Pythons skills.
-- Core Python Programming: Effective use of Python's data types, variables, operators, and syntax.
-- Problem-Solving: Design a solution to break down the game logic into well-defined steps.
-- Control Flow: Implement conditional statements (if, elif, else) and loops (for, while) to manage the game's progression.
-- Functions: Create modular and reusable code blocks with functions encapsulating specific game mechanics. The goal is for each function to handle a single, well-defined task. This approach promotes cleaner code, easier maintainability and readability, and easier debugging during testing.
-- User Interaction: Design a command-line interface to gather user input and provide user feedback.
+Create a fun retro game using my acquired Pythons skills:
+- Core Python Programming: effective use of Python's data types, variables, operators, and syntax.
+- Problem-Solving: eesign a solution to break down the game logic into well-defined steps.
+- Control Flow: implement conditional statements (if, elif, else) and loops (for, while) to manage the game's progression.
+- Functions: create modular and reusable code blocks with functions encapsulating specific game mechanics. The goal is for each function to handle a single, well-defined task. This approach promotes cleaner code, easier maintainability and readability, and easier debugging during testing.
+- User Interaction: design a command-line interface to gather user input and provide user feedback.
 
 ## User Experience
 
 ### Target Audience
+- Word Game Enthusiasts: people who enjoy crossword puzzles, Scrabble, Wordle, or any game that involves vocabulary and wordplay.
+- Language Learners: people looking for a fun way to practice their English vocabulary skills.
+- Challenge Hunters: people enjoy a challenge and seek to improve their logical thinking and sharpen their deductive skills.
+Casual Gamers: people looking for a simple, quick, and engaging game to play during short breaks or to pass the time avoiding boredom.
+- Nostalgia Seekers: people who fondly remember playing Hangman with pen and paper and want to recapture that experience.
 
 ### First Time Visitors Goals
 
+As a firs time user, I can
+- play a familiar game online without having to download an app.
+- understand the gameplay through simple instructions and clear feedback without having to learn complicated rules.
+- get instant feedback and a sense of progress without complex strategies or lengthy gameplay.
+- enjoy a game without needing a partner or scheduling a game session.
+
 ### Returning Visitors Goals
 
+As a returning visitor, I want to:
+- analyze my performance and spot areas for improvement.
+- enjoy playing a game without needing a refresher on the rules.
+- experience a fresh challenge each time thanks to the unpredictable nature of the computer's word choices.
+
 ### Frequent Visitors Goals
+As a frequent visitor, I want to:
+- enjoy a familiar game with a quick and engaging format for a mental break.
+- see how fast I can improve my learning curve and sharpen my deductive and logical thinking skills.
+
 
 ## Project Planning
 
