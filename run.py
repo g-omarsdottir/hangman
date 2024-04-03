@@ -141,7 +141,7 @@ def choice_play_game():
         choice_display_rules()
     else:
         print("Invalid input. Please enter 'y' or 'n'.")
-        user_choice_play
+        choice_play_game()
 
 
 def choice_display_rules():
@@ -308,7 +308,7 @@ def choice_play_again():
         choice_play_game()
     else:
         print("Invalid input. Please enter 'y' or 'n'.")
-        user_choice_play_again
+        choice_play_again()
 
 
 def main():
