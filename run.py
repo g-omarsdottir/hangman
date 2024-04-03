@@ -194,6 +194,7 @@ def choice_username():
     Passes the user input for validation to the validate_username function.
     """
     while True:
+        print()
         username = input("Choose your username:\n").strip()
         clear_terminal()
         if validate_username(username):
