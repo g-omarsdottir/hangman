@@ -129,7 +129,9 @@ def choice_play_game():
     global word
     word = random.choice(WORDS)
 
-    user_choice_play = input("Would you like to play? (y/n):\n").strip().upper()
+    user_choice_play = input(
+        "Would you like to play? (y/n):\n"
+        ).strip().upper()
     clear_terminal()
     if user_choice_play == "N":
         print("You chose not to play. See you later, alligator!")
@@ -154,24 +156,24 @@ def choice_display_rules():
     clear_terminal()
     if user_choice_rules == "Y":
         print("""
-            Game rules:
+Game rules:
 
-            You will get a set of blanks representing
-                the number of letters in a word.
+You will get a word puzzle as a set of dashes,
+representing the number of letters in the word to guess.
 
-            Guess the word by entering one letter at a time
-                and press enter.
+Guess the word by entering one letter at a time
+and press enter.
 
-            You have 6 guesses.
+You have 6 guesses.
 
-            If you guess correctly,
-                your letter(s) will appear on the blank(s).
+If you guess correctly,
+your letter(s) will appear in the word puzzle.
 
-            If you fail,
-                you have one less guess left and
-                are one step closer to the gallows.
+If you fail,
+you have one less guess left and
+you are one step closer to the gallows.
 
-            So choose wisely!
+Good luck!
             """)
         choice_username()
     elif user_choice_rules == "N":
