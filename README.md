@@ -56,6 +56,12 @@ The flowchart depicts the flow of the game logic:
 
 ![flowchart](/documentation/flowchart.png)
 
+### Colors
+
+Minimalistic color was added to the command-line interface with ANSI Escape Codes.
+
+The bold green line on a black background was added to emphasise the user feedback to the the user's guess and the final game results message, while keeping the overall nostalgic retro atmosphere of such a command-line interface game. 
+
 ## Features
 
 ## Technology Used
