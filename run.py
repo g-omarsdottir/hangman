@@ -126,6 +126,7 @@ def choice_play_game():
     print()
     right_guesses.clear()
     wrong_guesses.clear()
+    guesses_list.clear()
     global word_puzzle
     word_puzzle = ""
     global word
