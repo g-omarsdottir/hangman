@@ -107,7 +107,7 @@ def return_to_menu():
     """
     Enables user to return to the game in case of unintended exit from game.
     """
-    input("Press any key to return to the game menu.")
+    input("Press any key to return to the game menu.\n")
     clear_terminal()
     choice_play_game()
 
@@ -129,7 +129,7 @@ def choice_play_game():
     global word
     word = random.choice(WORDS)
 
-    user_choice_play = input("Would you like to play? (y/n): ").strip().upper()
+    user_choice_play = input("Would you like to play? (y/n):\n").strip().upper()
     clear_terminal()
     if user_choice_play == "N":
         print("You chose not to play. See you later, alligator!")
@@ -149,13 +149,13 @@ def choice_display_rules():
     Validates user input.
     """
     user_choice_rules = input(
-        "Would you like to read the rules? (y/n) "
+        "Would you like to read the rules? (y/n)\n"
         ).strip().upper()
     clear_terminal()
     if user_choice_rules == "Y":
         print("""
             Game rules:
-            
+
             You will get a set of blanks representing
                 the number of letters in a word.
 
@@ -187,7 +187,7 @@ def choice_username():
     Passes the user input for validation to the validate_username function.
     """
     while True:
-        username = input("Choose your username: ").strip()
+        username = input("Choose your username:\n").strip()
         clear_terminal()
         if validate_username(username):
             return True
@@ -237,7 +237,7 @@ def get_guess():
     Passes the letter for validation to the validate_guess function.
     """
     while True:
-        guess = input("Guess a letter: ").strip().upper()
+        guess = input("Guess a letter:\n").strip().upper()
         clear_terminal()
         is_guess_valid = validate_guess(guess)
         if is_guess_valid is not False:
@@ -296,7 +296,7 @@ def choice_play_again():
     Validates user input.
     """
     user_choice_play_again = input(
-        "Would you like to play again? (y/n) "
+        "Would you like to play again? (y/n)\n"
         ).strip().upper()
     clear_terminal()
     if user_choice_play_again == "N":
