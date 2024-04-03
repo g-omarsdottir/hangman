@@ -239,7 +239,7 @@ def display_game():
     print()
     word_puzzle = [
         letter if letter in right_guesses else "_" for letter in word]
-    print("The Word to guess is: ", " ".join(word_puzzle))
+    print("The word to guess is: ", " ".join(word_puzzle))
     print()
     print("Used letters: ", " ".join(guesses_list))
     print()
@@ -309,9 +309,6 @@ def append_guesses_list(guess, correct):
         right_guesses.append(guess)
     else:
         wrong_guesses.append(guess)
-
-
-
 
 
 def choice_play_again():
