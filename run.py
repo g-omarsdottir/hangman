@@ -96,9 +96,7 @@ def visual_separator():
     """
     Prints a decorative line for visual separation for user feedback.
     """
-    print()
     print("\033[1;32;40m" + "—" * 39 + "\033[0m\n")
-    print()
 
 
 # Game functions
@@ -275,17 +273,14 @@ def compare_guess(guess):
     Emphasises user feedback with visual separator.
     """
     if guess in right_guesses or guess in wrong_guesses:
-        visual_separator()
         print(f"You've already guessed {guess}. Try again.")
         visual_separator()
     elif guess not in word:
         wrong_guesses.append(guess)
-        visual_separator()
         print(f"Wrong guess, {guess} is not correct.")
         visual_separator()
     else:
         right_guesses.append(guess)
-        visual_separator()
         print(f"Great job, {guess} is correct!")
         visual_separator()
 
