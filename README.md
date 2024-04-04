@@ -314,6 +314,7 @@ Due to the tight time schedule, the emphasis in this project was on solely on pu
 - [Draw.io](https://app.diagrams.net/) to create the flowchart of game logic for the project design.
 - [Table Magic](https://stevecat.net/table-magic/) to create tables for this README.
 - [Schield.io](https://shields.io/badges) for informative, decorative static badges for this README.
+- [Canva](https://www.canva.com/) to create the preview image of the live project for this README.
 
 ## Testing
 
