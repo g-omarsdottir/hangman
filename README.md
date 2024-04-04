@@ -83,6 +83,199 @@ The bold green line on a black background was added to emphasise the user feedba
 
 ## Features
 
+### User Choices for Game Control
+
+Throughout the game, the user is provided with choices, if and how to proceed with the game. 
+
+### Informative User Feedback
+
+The game provides clear and informative feedback to the user throughout the gameplay experience. 
+
+For instance, if the user enters invalid input, the game will display a message explaining the error and provide instructions on how to enter valid input.
+
+<details>
+<summary>Click for image</summary>
+
+![invalid user input](/documentation/invalid-input.png)
+</details>
+
+### Start Screen
+
+The game opens with a welcoming message and displays the gallows with a hanging stick figure on it for references for the name of the game.
+
+The initial prompt asks if the user wants to play.
+
+<details>
+<summary>Click for image</summary>
+
+![start screen](/documentation/start-screen.png)
+</details>
+
+- **No:** If the user chooses "no," the choice made is confirmed and playful goodbye message indicates that the user is welcome to play again at another time.
+
+- **Return Option:** The user is presented with the choice to return to the game menu in case of an unintended input or a change of heart.
+
+    <details>
+    <summary>Click for image</summary>
+
+    ![play-no](/documentation/play-no.png)
+    </details>
+
+- **Yes:** If the user chooses "yes," the choice made is confirmed and a choice is presented to read the game rules before moving forward.
+
+    <details>
+    <summary>Click for image</summary>
+
+    ![play-yes](/documentation/play-yes.png)
+    </details>
+
+### Game Rules
+
+- **Yes:** If the user chooses to read the rules, the game displays a clear set of guidelines on how to play the game. 
+
+- **Personalized Experience:** The user is prompted to enter a username to proceed, adding a touch of personalization to the gameplay.
+
+    <details>
+    <summary>Click for image</summary>
+
+    ![rules](/documentation/rules.png)
+    </details>
+
+- **No:** If the user chooses to skip the rules, the choice made is confirmed and the user is prompted to enter a username to proceed.
+
+    <details>
+    <summary>Click for image</summary>
+
+    ![rules-no](/documentation/rules-no.png)
+    </details>
+
+### Game Start
+
+Upon successful username entry, the game kicks off:
+
+**Welcome Message:** The player is greeted with a personalized welcome message, setting the tone for an engaging experience.
+
+**Hangman Drawing:** The empty gallows appear, creating a sense of anticipation. The Hangman drawing visualizes the user’s performance during the game. 
+
+**Word Puzzle:** The word to guess is represented by dashes, indicating the length of the secret word.
+
+**Game Status:** The player is informed of the remaining guesses and already guessed letters.
+
+**Word Challenge:** A clear prompt invites the player to make a guess.
+
+<details>
+<summary>Click for image</summary>
+
+![game-start](/documentation/game-start.png)
+</details>
+
+### Responsive Gameplay
+
+Each guess triggers immediate and informative user feedback and updates the display of the game status accordingly.
+
+**Informative User Feedback:** the guessed letter is displayed and whether the guess is correct or incorrect. 
+
+**Visual Clarity:** A decorative colored line visually separates this feedback from the game status for improved user experience. This allows the user to concentrate on the word puzzle while making the feedback easy to spot.
+
+<details>
+<summary>Click for image</summary>
+
+![visual-seperator](/documentation/visual-separator.png)
+</details>
+
+### Evolving Game State
+
+**Hangman Drawing:** The stick figure on the gallows progresses if the guess is incorrect. 
+
+**Guesses Left:** The number of guesses left updates if the guess is incorrect. 
+
+If an already used letter is entered, the game state remains the same and the user is prompted to try again.
+
+**Used Letters:** The list updates after each guess.
+
+**Word Puzzle:** If the guess is correct, the word puzzle updates, revealing the letter in its proper place.
+
+<details>
+<summary>Click for image</summary>
+
+![responsive-gameplay](/documentation/responsive-gameplay.png)
+</details>
+
+### Game Completion
+
+The game ends when the user has successfully solved the word puzzle or if the user runs out of guesses.
+
+#### Game Victory
+
+When the user correctly guesses the entire word, the user wins and the game concludes with:
+
+- **User Feedback:** A clear message congratulates the user on the victory.
+
+- **Game Status:** The user can review the list of used letters and the number of guesses left. The drawing visualizes that the stick figure was not hanged on the gallows symbolizing the user’s success.
+
+- **Word Puzzle:** The word, that the user correctly guessed, is displayed.
+
+- **Rematch Option:** The user is offered the choice to play again for a shot at a different word.
+
+    <details>
+    <summary>Click for image</summary>
+
+    ![user-won](/documentation/user-won.png)
+    </details>
+
+#### Game Over
+
+When a user runs out of guesses, the user loses and the game concludes with:
+
+- **User Feedback:** A clear message indicates the user has lost. 
+
+    The completed Hangman drawing displays the hanged stick figure on the gallows, reinforcing this gloomy outcome.
+
+- **Game Status:** The user can review the number of guesses left and the list of used letters.
+
+- **Word Puzzle:** The word to guess is revealed allowing the user to analyze the performance.
+
+- **Rematch Option:** The user is offered the choice to play again for a shot at a different word.
+
+    <details>
+    <summary>Click for image</summary>
+
+    ![user-lost](/documentation/user-lost.png)
+    </details>
+
+### Play Again
+
+The user is presented with the option to play again.
+
+- **Yes:** If the user chooses to play again, the game provides the following:
+
+    - **Start Screen:** The user proceeds to the start screen and a message confirms the user's choice to restart the game.
+
+    - The user is prompted for a choice to play the game.
+
+        <details>
+        <summary>Click for image</summary>
+
+        ![again-yes](/documentation/again-yes.png)
+        </details>
+
+    - **Yes:** If the user chooses to play, the game resets, 
+        - clearing previous guesses and the word puzzle, 
+        - restoring the initial number of guesses, 
+        - and providing the user with a fresh new word challenge.
+
+- **No:** Exiting the Game. If the user chooses not to play again, the game provides the following:
+
+    - **Friendly Farewell:** The choice not to play again is confirmed and a playful goodbye message indicates that the user is welcome to play again at another time.
+
+    - **Return Option:** The user is presented with the choice to return to the game menu in case of an unintended input or a change of heart.
+
+        <details>
+        <summary>Click for image</summary>
+
+        ![again-no](/documentation/again-no.png)
+        </details>
+
 ## Technology Used
 
 ### Languages Used
