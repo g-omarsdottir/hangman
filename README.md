@@ -307,6 +307,29 @@ The Python code passed through the Python Linter Validator provided by the Code 
 
 ### Manual Testing
 
+Tests were performed on the deployed live project.
+
+| Feature                             | Test case                                                             | Outcome                                                                      |
+|-------------------------------------|-----------------------------------------------------------------------|------------------------------------------------------------------------------|
+| Game initiation                     | User chooses to play                                                  | Prompt to display rules                                                      |
+| Game initiation                     | User chooses not to Play                                              | Exits game - Option return to menu                                           |
+| Game initiation                     | Invalid user input (neither “y” nor “n”)                              | Error message with instructions - - Prompt repeats                           |
+| Game initiation                     | User chooses not to play                                              | Exits game - Option return to menu                                           |
+| Game initiation for returning users | User chose to play again                                              | Game state is reset – Word to guess is new                                   |
+| Display rules                       | User chooses to read rules                                            | Rules displayed - Prompt to enter username                                   |
+| Display rules                       | User chooses to skip rules                                            | Prompt to enter username                                                     |
+| Display rules                       | Invalid user input (neither “y” nor “n”)                              | Error message with instructions - - Prompt repeats                           |
+| Enter username                      | User enters valid username                                            | Game starts - Prompt to guess                                                |
+| Enter username                      | Invalid user input (non-alphabetic - space - empty - characters < 10) | Error message with instructions - - Prompt repeats                           |
+| Enter guess                         | Correct guess                                                         | User feedback - Game state updates - - Prompt repeats while guesses left > 0 |
+| Enter guess                         | Incorrect guess                                                       | User Feedback - Game state updates - - Prompt repeats while guesses left > 0 |
+| Enter guess                         | Incorrect guess - guesses left = 0                                    | Game completion                                                              |
+| Enter guess                         | Invalid user input (non-alphabetic – space - empty)                   | Error message with instructions - - Prompt repeats                           |
+| Game completion                     | User chooses to play again                                            | User feedback - Game initiation                                              |
+| Game completion                     | User chooses to not to play again                                     | Game exits - Option return to menu                                           |
+| Game Completion                     | Invalid user input (neither “y” nor “n”)                              | Error message with instructions - - Prompt repeats                           |
+| Option return to menu               | User presses enter to return to menu                                  | Game initiation - Prompt to play                                             |
+
 ### Testing User Stories
 
 ## Bugs
