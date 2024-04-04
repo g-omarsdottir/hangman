@@ -420,6 +420,8 @@ To fork the repository:
 
 ## Credits
 
+The content for this project was written by me, Gudrun Omarsdottir.
+
 ### Content
 
 - [Chris Horton](https://gist.github.com/chrishorton/8510732aa9a80a03c829b09f12e20d9c) for the code used to create the hangman image and the list of words to guess.
