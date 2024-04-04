@@ -1,6 +1,6 @@
 # Welcome to a game of Hangman
 
-Mockup
+![preview](/documentation/preview.png)
 
 [View the Live Project Here](https://hangman-word-puzzle-78ef7f810338.herokuapp.com/)
 
