@@ -186,6 +186,8 @@ def choice_display_rules():
         print(RULES)
         choice_username()
     elif user_choice_rules == "N":
+        print()
+        print("You chose to skip the rules.")
         choice_username()
     else:
         print()
