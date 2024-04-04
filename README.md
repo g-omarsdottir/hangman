@@ -4,6 +4,16 @@
 
 [View the Live Project Here](https://hangman-word-puzzle-78ef7f810338.herokuapp.com/)
 
+![Static Badge Last Commit](https://img.shields.io/badge/last_commit-April_2024-green)
+![Static Badge Contributors](https://img.shields.io/badge/contributors-1-ff69b4)
+![Static Badge Languages](https://img.shields.io/badge/languages-4-%23ffdbac)
+![Python](https://img.shields.io/badge/Python-47.2%2525-blue)
+![Static Badge HTML](https://img.shields.io/badge/HTML-26.3%2525-orange)
+![Static Badge JavaScript](https://img.shields.io/badge/JavaScript-12.5%2525-yellow)
+![Static Badge Shell](https://img.shields.io/badge/Shell-5.1%2525-lightgrey)
+![Static Badge Linter](https://img.shields.io/badge/linting-CI_Python_linter-lightblue)
+![Static Badge PEP 8](https://img.shields.io/badge/PEP_8-compliant-%23A9E5DE)
+
 This hangman game is an online command-line implementation of the classic word-guessing game Hangman, which is traditionally played with pen and paper. It is designed to test and train vocabulary and deductive skills in a playful way.
 
 The word to guess is randomly generated from a list of animals for a fresh challenge each time. The number of wrong guesses is limited to the number of lines it takes to draw the hangman stick figure on the gallows. When the stick figure is complete, the stick figure is hanged and the game ends. If the word puzzle is solved before the stick figure hangs, the player wins and successfully completes game.
@@ -303,6 +313,7 @@ Due to the tight time schedule, the emphasis in this project was on solely on pu
 - [Diffchecker](https://www.diffchecker.com/) to compare versions for troubleshooting.
 - [Draw.io](https://app.diagrams.net/) to create the flowchart of game logic for the project design.
 - [Table Magic](https://stevecat.net/table-magic/) to create tables for this README.
+- [Schield.io](https://shields.io/badges) for informative, decorative static badges for this README.
 
 ## Testing
 
