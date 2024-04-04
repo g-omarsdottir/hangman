@@ -166,7 +166,7 @@ To fork the repository:
 
 ### Content
 
-- [Chris Horton](https://gist.github.com/chrishorton/8510732aa9a80a03c829b09f12e20d9c) for the hangman image and the words to guess.
+- [Chris Horton](https://gist.github.com/chrishorton/8510732aa9a80a03c829b09f12e20d9c) for the code used to create the hangman image and the list of words to guess.
 - [Stack Overflow](https://stackoverflow.com/questions/50504500/deprecationwarning-invalid-escape-sequence-what-to-use-instead-of-d) for declaration of a raw string for the hangman drawing. Adding a backslash as an escape character " \ " for each issue makes the the drawing, which is is created with characters, less readable.
 - [Ali Spittel](https://www.myhatchpad.com/insight/7-practical-tips-for-writing-clean-code/) for insights on how to write clean code.
 
