@@ -13,12 +13,21 @@ The word to guess is randomly generated from a list of animals for a fresh chall
 
 ## Project and Site Owner Goals
 
-Create a fun retro game using my acquired Pythons skills:
-- Core Python Programming: effective use of Python's data types, variables, operators, and syntax.
-- Problem-Solving: eesign a solution to break down the game logic into well-defined steps.
-- Control Flow: implement conditional statements (if, elif, else) and loops (for, while) to manage the game's progression.
-- Functions: create modular and reusable code blocks with functions encapsulating specific game mechanics. The goal is for each function to handle a single, well-defined task. This approach promotes cleaner code, easier maintainability and readability, and easier debugging during testing.
-- User Interaction: design a command-line interface to gather user input and provide user feedback.
+My goal with this Python Hangman game is to craft a nostalgic, engaging word-guessing game using my acquired Pythons skills:
+
+- Logical Thinking: 
+    - Design the flowchart for the code logic according to the gameplay.
+- Core Python Programming: 
+    - Effective use of Python's data types, variables, operators, and syntax.
+- Control Flow: 
+    - Implement conditional statements and loops to manage the game's progression.
+- Functions: 
+    - Create modular and reusable code blocks with functions encapsulating specific game mechanics and validation of user input. 
+- Clean Code: 
+    - Functions should at best handle a single, well-defined task easier maintainability readability, and easier debugging.
+    - Encapsulation of code structure: grouping constants, variables, as well as general and game functions.
+- User Interaction: 
+    - Gather user input, provide user feedback, and give the user control over the game progression using a command-line interface.
 
 ## User Experience
 
@@ -158,5 +167,6 @@ To fork the repository:
 
 - [Chris Horton](https://gist.github.com/chrishorton/8510732aa9a80a03c829b09f12e20d9c) for the hangman image and the words to guess.
 - [Stack Overflow](https://stackoverflow.com/questions/50504500/deprecationwarning-invalid-escape-sequence-what-to-use-instead-of-d) for declaration of a raw string for the hangman drawing. Adding a backslash as an escape character " \ " for each issue makes the the drawing, which is is created with characters, less readable.
+- [Ali Spittel](https://www.myhatchpad.com/insight/7-practical-tips-for-writing-clean-code/) for insights on how to write clean code.
 
 ### Acknowledgements
