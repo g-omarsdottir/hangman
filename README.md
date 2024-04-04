@@ -277,6 +277,12 @@ At game conclusion, the user is presented with the option to play again.
         ![again-no](/documentation/again-no.png)
         </details>
 
+### Features Left to Implement
+
+- Add a decorative website to frame the command-line interface with a retro archive theme using HTML, CSS and Javascript.
+
+Due to the tight time schedule, the emphasis in this project was on solely on putting my Python skills to test and achieve solid, clean Python code. 
+
 ## Technology Used
 
 ### Languages Used
