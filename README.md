@@ -102,7 +102,7 @@ For instance, if the user enters invalid input, the game will display a message 
 
 ### Start Screen
 
-The game opens with a welcoming message and displays the gallows with a hanging stick figure on it for references for the name of the game.
+The game opens with a welcoming message and display of a hangman's gallows as a reference to the game's name and theme.
 
 The initial prompt asks if the user wants to play.
 
@@ -246,7 +246,7 @@ When a user runs out of guesses, the user loses and the game concludes with:
 
 ### Play Again
 
-The user is presented with the option to play again.
+At game conclusion, the user is presented with the option to play again.
 
 - **Yes:** If the user chooses to play again, the game provides the following:
 
