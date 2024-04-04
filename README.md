@@ -90,7 +90,9 @@ The bold green line on a black background was added to emphasise the user feedba
 - [Heroku](https://www.heroku.com/) for deploying the project.
 - [Code Institute template](https://github.com/Code-Institute-Org/p3-template) for Gitpod and this README.
 - [Python Linter Validator](https://pep8ci.herokuapp.com/) according to the PEP 8 style guide for validating the Python code.
+- [Diffchecker](https://www.diffchecker.com/) to compare versions for troubleshooting.
 - [Draw.io](https://app.diagrams.net/) to create the flowchart of game logic for the project design.
+- [Table Magic](https://stevecat.net/table-magic/) to create tables for this README.
 
 ## Testing
 
@@ -108,7 +110,15 @@ The Python code passed through the Python Linter Validator provided by the Code 
 
 ### Known Bugs
 
+There are no known bugs.
+
 ### Resolved Bugs
+
+| Bug                   | Description                                                                                                                  | Solution Applied                                                     | Result |
+|-----------------------|------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------|--------|
+| Premature end of game | Incorrect comparison in win condition of correctly guessed letters with unique letters in word in cases of duplicate letters | Compare set of correctly guessed letters with set of letters in word | Solved |
+| Enter invalid guess   | Only input text prompting for a guess displayed on terminal                                                                  | Add else statement to display game if input is invalid               | Solved |
+| Enter invalid guess   | Returning the boolean value instead of a string                                                                              | Add while True loop to return guess only if input is valid           | Solved |
 
 ## Deployment and Local Development
 
