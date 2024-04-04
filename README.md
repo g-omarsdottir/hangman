@@ -2,7 +2,7 @@
 
 Mockup
 
-Link to Live Project
+[View the Live Project Here](https://hangman-word-puzzle-78ef7f810338.herokuapp.com/)
 
 This hangman game is an online command-line implementation of the classic word-guessing game Hangman, which is traditionally played with pen and paper. It is designed to test and train vocabulary and deductive skills in a playful way.
 
