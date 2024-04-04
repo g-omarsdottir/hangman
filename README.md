@@ -42,11 +42,12 @@ My goal with this Python Hangman game is to craft a nostalgic, engaging word-gue
 ## User Experience
 
 ### Target Audience
-- Word Game Enthusiasts: people who enjoy crossword puzzles, Scrabble, Wordle, or any game that involves vocabulary and wordplay.
-- Language Learners: people looking for a fun way to practice their English vocabulary skills.
-- Challenge Hunters: people enjoy a challenge and seek to improve their logical thinking and sharpen their deductive skills.
-Casual Gamers: people looking for a simple, quick, and engaging game to play during short breaks or to pass the time avoiding boredom.
-- Nostalgia Seekers: people who fondly remember playing Hangman with pen and paper and want to recapture that experience.
+
+- **Word Game Enthusiasts:** People who enjoy crossword puzzles, Scrabble, Wordle, or any game that involves vocabulary and wordplay.
+- **Language Learners:** People learning English as a foreign language and are looking for a fun way to practice their English vocabulary skills.
+- **Challenge Hunters:** People enjoy a challenge and seek to improve their logical thinking and sharpen their deductive skills.
+- **Casual Gamers:** People looking for a simple, quick, and engaging game to play during short breaks or to pass the time avoiding boredom.
+- **Nostalgia Seekers:** People who fondly remember playing Hangman with pen and paper and want to recapture that experience, or people who enjoy playing retro computer games, similar to the interaction with the good old Commador 64.
 
 ### First Time Visitors Goals
 
