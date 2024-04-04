@@ -298,9 +298,10 @@ Due to the tight time schedule, the emphasis in this project was on solely on pu
 ### Languages Used
 
 - Python
-- HTML5
-- JavaScript
 - Markdown for this README
+- HTML5 as a part of the Code Institute template for this project.
+- JavaScript as a part of the Code Institute template for this project.
+- Shell as a part of the Code Institute template for this project.
 
 ### Frameworks, Libraries and Programs Used
 
