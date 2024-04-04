@@ -11,6 +11,16 @@ The word to guess is randomly generated from a list of animals for a fresh chall
 
 ## Table of Contents
 
+- [Project and Site Owner Goals](#project-and-site-owner-goals)
+- [User Experience](#user-experience)
+- [Design](#design)
+- [Features](#features)
+- [Technology Used](#technology-used)
+- [Testing](#testing)
+- [Bugs](#bugs)
+- [Deployment and Local Development](#deployment-and-local-development)
+- [Credits](#credits)
+
 ## Project and Site Owner Goals
 
 My goal with this Python Hangman game is to craft a nostalgic, engaging word-guessing game using my acquired Pythons skills:
