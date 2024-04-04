@@ -169,5 +169,13 @@ To fork the repository:
 - [Chris Horton](https://gist.github.com/chrishorton/8510732aa9a80a03c829b09f12e20d9c) for the code used to create the hangman image and the list of words to guess.
 - [Stack Overflow](https://stackoverflow.com/questions/50504500/deprecationwarning-invalid-escape-sequence-what-to-use-instead-of-d) for declaration of a raw string for the hangman drawing. Adding a backslash as an escape character " \ " for each issue makes the the drawing, which is is created with characters, less readable.
 - [Ali Spittel](https://www.myhatchpad.com/insight/7-practical-tips-for-writing-clean-code/) for insights on how to write clean code.
+- [The Code Institute walkthrough project Love Sandwiches](https://github.com/Code-Institute-Solutions/love-sandwiches-p5-sourcecode/blob/master/05-deployment/01-deployment-part-1/run.py) for inspiration to structure functions to handle single tasks and control the flow of the game logic using a main function.
+- [Kylie Ying](https://github.com/kying18/hangman/blob/master/hangman.py) for inspiration to update the word puzzle with correctly guessed letters using a list comprehension and display the updated word puzzle to the user using the method join.
 
 ### Acknowledgements
+
+- My mentor, Mitko Bachvarov, for his guidance and valuable advice.
+- My friend, Stephan Reich, for support in troubleshooting and guidance to achieve clean code.
+- My fellow students at Code Institute, especially [Amir Shkolnik](https://github.com/AmirShkolnik) for support with styling the project with color, and Niclas Hugdahl, for support with troubleshooting.
+- My Code Institute course facilitator [Kristyna Wach](https://github.com/Cushione) for guidance, untiring motivation and encouragement.
+- The Slack community for motivation.
