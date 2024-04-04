@@ -80,6 +80,7 @@ The bold green line on a black background was added to emphasise the user feedba
 - Python
 - HTML5
 - JavaScript
+- Markdown for this README
 
 ### Frameworks, Libraries and Programs Used
 
