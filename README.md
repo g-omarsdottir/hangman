@@ -46,6 +46,8 @@ My goal with this Python Hangman game is to craft a nostalgic, engaging word-gue
 - Clean Code: 
     - Functions should at best handle a single, well-defined task easier maintainability readability, and easier debugging.
     - Encapsulation of code structure: grouping constants, variables, as well as general and game functions.
+    - Avoid redundancy. In this first Python project, I put consistency and readability over redundancy when printing user feedback and validating user input. As my skills further develop, this will be my main goal to master.
+        - For instance, while somewhat redundant, the validation for empty spaces in user input is achieved by applying the .strip() method as well as checking for spaces using conditional statements. Keeping both validation instances makes the code more explicit and improves readability at my current level of skills.
 - User Interaction: 
     - Gather user input, provide user feedback, and give the user control over the game progression using a command-line interface.
 
