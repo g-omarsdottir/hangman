@@ -184,7 +184,7 @@ Upon successful username entry, the game kicks off:
 
 Each guess triggers immediate and informative user feedback and updates the display of the game status accordingly.
 
-**Informative User Feedback:** the guessed letter is displayed and whether the guess is correct or incorrect. 
+**Informative User Feedback:** The guessed letter is displayed and whether the guess is correct or incorrect. 
 
 **Visual Clarity:** A decorative colored line visually separates this feedback from the game status for improved user experience. This allows the user to concentrate on the word puzzle while making the feedback easy to spot.
 
@@ -222,7 +222,7 @@ When the user correctly guesses the entire word, the user wins and the game conc
 
 - **User Feedback:** A clear message congratulates the user on the victory.
 
-- **Game Status:** The user can review the list of used letters and the number of guesses left. The drawing visualizes that the stick figure was not hanged on the gallows symbolizing the user’s success.
+- **Game Status:** The user can review the list of used letters and the number of guesses left. The Hangman drawing visualizes that the stick figure was not hanged on the gallows symbolizing the user’s success.
 
 - **Word Puzzle:** The word, that the user correctly guessed, is displayed.
 
@@ -352,7 +352,9 @@ Tests were performed on the deployed live project.
 
 ### Testing User Stories
 
-The Hangman game was tested by friends and family if it works as intended and provides an enjoyable experience. No issues were reported. Testers focused on the following user stories:
+The Hangman game was tested by friends and family if it works as intended and provides an enjoyable experience. No issues were reported. 
+
+Testers focused on the following user stories:
 
 - As a player, I want to guess a letter and see if it is in the word, and receive appropriate visual feedback, so I can try to solve the puzzle.
     - Test both correct and incorrect guesses, along with appropriate visual feedback.
@@ -445,6 +447,8 @@ The content for this project was written by me, Gudrun Omarsdottir.
 
 - My mentor, Mitko Bachvarov, for his guidance and valuable advice.
 - My friend, Stephan Reich, for support in troubleshooting and guidance to achieve clean code.
-- My fellow students at Code Institute, especially [Amir Shkolnik](https://github.com/AmirShkolnik) for support with styling the project with color, and Niclas Hugdahl, for support with troubleshooting.
+- My fellow students at Code Institute, especially 
+    - [Amir Shkolnik](https://github.com/AmirShkolnik) for support with styling the project with color and adding padding to the layout of the interface for a more pleasant appearance, and 
+    - Niclas Hugdahl, for proofreading this README.
 - My Code Institute course facilitator [Kristyna Wach](https://github.com/Cushione) for guidance, untiring motivation and encouragement.
 - The Slack community for motivation.
