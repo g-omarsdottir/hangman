@@ -18,7 +18,6 @@ This hangman game is an online command-line implementation of the classic word-g
 
 The word to guess is randomly generated from a list of animals for a fresh challenge each time. The number of wrong guesses is limited to the number of lines it takes to draw the hangman stick figure on the gallows. When the stick figure is complete, the stick figure is hanged and the game ends. If the word puzzle is solved before the stick figure hangs, the player wins and successfully completes game.
 
-
 ## Table of Contents
 
 - [Project and Site Owner Goals](#project-and-site-owner-goals)
@@ -80,7 +79,6 @@ As a returning visitor, I want to:
 As a frequent visitor, I want to:
 - enjoy a familiar game with a quick and engaging format for a mental break.
 - see how fast I can improve my learning curve and sharpen my deductive and logical thinking skills.
-
 
 ## Design
 
@@ -353,6 +351,17 @@ Tests were performed on the deployed live project.
 | Option return to menu               | User presses enter to return to menu                                  | Game initiation - Prompt to play                                             |
 
 ### Testing User Stories
+
+The Hangman game was tested by friends and family if it works as intended and provides an enjoyable experience. No issues were reported. Testers focused on the following user stories:
+
+- As a player, I want to guess a letter and see if it is in the word, and receive appropriate visual feedback, so I can try to solve the puzzle.
+    - Test both correct and incorrect guesses, along with appropriate visual feedback.
+- As a player, I want to see the word if I don't guess it correctly, so I know what I missed.
+    - Ensure the full word is revealed after the player runs out of guesses.
+- As a player, I want to be told if I've won, so I can feel accomplished.
+    - Test that a win condition is correctly recognized and displayed.
+- As a player, I want to be able to start a new game and get a new word puzzle each time.
+    - Ensure the program successfully generates a new word each time and resets all game state variables on the interface.
 
 ## Bugs
 
