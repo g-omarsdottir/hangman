@@ -88,6 +88,7 @@ Good luck!"""
 
 
 # Variables
+
 allowed_wrong_guesses = 6
 
 right_guesses = []
@@ -96,11 +97,10 @@ wrong_guesses = []
 
 guesses_list = []
 
-# Generate a random word from the tuple words.
-# Convert word to uppercase for comparison with the user's guess.
+# Generates a random word from the tuple words.
 word = random.choice(WORDS)
 
-# Generate dashes to indicate number of letters of word to guess.
+# Generates dashes to indicate number of letters of word to guess.
 word_puzzle = "_ " * len(word)
 
 
@@ -152,7 +152,6 @@ def choice_play_game():
     word_puzzle = ""
     global word
     word = random.choice(WORDS)
-
     user_choice_play = input(
         "Would you like to play? (y/n):\n"
         ).strip().upper()
@@ -198,6 +197,7 @@ def choice_display_rules():
 def choice_username():
     """
     Function to prompt the user to enter a username.
+    Strips empty spaces from user input.
     Passes the user input for validation to the validate_username function.
     """
     while True:
@@ -212,6 +212,7 @@ def validate_username(username):
     """
     Validates user input.
     Ensures it is between 1 and 10 characters.
+    Ensures it is only alphabetic characters.
     """
     if " " in username or not username.isalpha():
         print()
@@ -231,9 +232,9 @@ def validate_username(username):
 
 def display_game():
     """
-    Displays the game to the user.
-    Updates the displayed word_puzzle.
-    Updates the list of used letters.
+    Displays the game state to the user.
+    Updates and displays the word puzzle.
+    Displays the used letters.
     """
     print(HANGMAN_DRAWING[len(wrong_guesses)])
     guesses_left = allowed_wrong_guesses - len(wrong_guesses)
@@ -306,6 +307,10 @@ def compare_guess(guess):
 
 
 def append_guesses_list(guess, correct):
+    """
+    Appends guessed letters to the guesses list.
+    Updated list is displayed to user in function display game.
+    """
     guesses_list.append(guess)
     if correct:
         right_guesses.append(guess)
@@ -340,7 +345,7 @@ def choice_play_again():
 
 def main():
     """
-    Run all game functions.
+    Runs all game functions.
     Handles win or loss condition to end game.
     """
     choice_play_game()
