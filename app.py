@@ -52,9 +52,10 @@ def index():
     <div class="card">
     <h1>Hangman (Python CLI Game)</h1>
     <p>This project is a command-line implementation of the classic Hangman game written in Python.</p>
-
+    <p>To play the game, click the button below, open the project on Replit, and press <strong>Run</strong> in the console. You will need a Replit account for this.</p>
+    <p>Alternatively, you can clone the repository and play the game locally. Instructions are provided in the README.</p>
     <p>
-    <a href="https://hangman--gomarsdottir.replit.app">▶ Play the game on Replit</a>
+    <a href="https://replit.com/@gomarsdottir/hangman">▶ Run the game on Replit</a>
     </p>
 
     <p>Source code:</p>
