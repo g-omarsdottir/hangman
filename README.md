@@ -2,7 +2,7 @@
 
 ![preview](/documentation/preview.png)
 
-[View the Live Project Here](https://hangman--gomarsdottir.replit.app)
+[View the Live Project Here (via Replit)](https://replit.com/@gomarsdottir/hangman)
 
 ![Static Badge Last Commit](https://img.shields.io/badge/last_commit-April_2024-green)
 ![Static Badge Contributors](https://img.shields.io/badge/contributors-1-ff69b4)
@@ -415,24 +415,14 @@ To deploy the repository:
 
 #### Deployment using Replit
 
-To prepare the repository for deployment:
-- Install Flask and gunicorn.
-- Create a minimal `app.py` file to provide a web entry point for the deployment.
-- Create a `render.yaml` file to define build and start commands for deployment.
 To deploy the repository:
 - Log into Replit and navigate to the dashboard.
 - Navigate to the button “Import code or design” and select “GitHub”.
 - Enter the [link to the GitHub repository](https://github.com/g-omarsdottir/hangman.git).
 - Click on the button “Import from GitHub”.
 - Wait for Replit to analyze the codebase and install the required dependencies.
-- Navigate to “Publish” on the top navigation menu.
-- In the section “Adjust Settings”, enter the following:
-- Build command:
-    - python -m pip install -r requirements.txt
-- Run command:
-    - python -m gunicorn app:app
-- Click on the button “Publish”.
-- Open the generated link to view the [deployed project](https://hangman--gomarsdottir.replit.app). 
+- Click the button “Publish”.
+- Open the generated link to view the [deployed project](https://replit.com/@gomarsdottir/hangman). 
 
 ### Local Development
 
